@@ -1,0 +1,8 @@
+/* .count_container{margin: auto;position: absolute;top: 30%;left: 50%;transform: translate(-50%, -50%);}
+.tabsBtn {display: flex;margin-bottom: 10px;width: 200px;justify-content: space-between;}
+.plus_minus {padding: 4px 20px;background-color: #019DDA;color: white;font-weight: bold;font-size: 30px;cursor: pointer;}
+.num_count {flex: 1;text-align: center;border-top: 1px solid #A9A9A9;border-bottom: 1px solid #A9A9A9;display: flex;justify-content: center;align-items: center;font-size: 24px;} */
+.tabs_boxes_container {max-width: 50%;margin: auto;margin-top: 40px;}
+.tabs_internal {display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 20px 20px;text-align: center;cursor: pointer;}
+.tabs_boxes {box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);background-color: white;color: black;padding: 50px 0px;font-size: 20px;font-style: italic;}
+.box_activated {background-color: #ffa630;color: white;}

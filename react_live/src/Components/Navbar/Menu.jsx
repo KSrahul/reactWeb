@@ -3,7 +3,7 @@ import React from 'react';
 const Menu = () => {
     return (
         <>
-            <div className="flex">
+            {/* <div className="flex">
                 <ul>
                     <li>
                         <a href="/">Abouts</a>
@@ -18,7 +18,7 @@ const Menu = () => {
                         <a href="/">Helps</a>
                     </li>
                 </ul>
-            </div>
+            </div> */}
         </>
     )
 }
