@@ -6,3 +6,7 @@
 .tabs_internal {display: grid;grid-template-columns: repeat(3, 1fr);grid-gap: 20px 20px;text-align: center;cursor: pointer;}
 .tabs_boxes {box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);background-color: white;color: black;padding: 50px 0px;font-size: 20px;font-style: italic;}
 .box_activated {background-color: #ffa630;color: white;}
+
+@media only screen and (max-width: 700px) {
+    .tabs_boxes_container{max-width: 92%;}
+}
