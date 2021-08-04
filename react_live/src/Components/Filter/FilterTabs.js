@@ -1,4 +1,4 @@
-const FilterTabs = ({uniquItems, filterItemsData}) => {
+const FilterTabs = ({uniquItems, filterItemsData, classActive}) => {
     return(
         <>
             <div className="tabs_boxes_container">
@@ -6,7 +6,7 @@ const FilterTabs = ({uniquItems, filterItemsData}) => {
                     {
                         uniquItems.map((itemsCate, indexVal) => {
                             return(
-                                <div key={indexVal} className="tabsLink" onClick={() => filterItemsData(itemsCate)}>{itemsCate}</div>
+                                <div key={indexVal} className={`tabsLink ${classActive(itemsCate)}`} onClick={filterItemsData}>{itemsCate}</div>
                             )
                         })
                     }

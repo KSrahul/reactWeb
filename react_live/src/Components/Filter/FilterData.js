@@ -19,7 +19,7 @@ const FilterData = [
     },
     {
         id: 4,
-        image: "https://www.healthunbox.com/wp-content/uploads/2018/03/compressed-yubo-1200x675.jpg",
+        image: "https://www.tajamarket.com/wp-content/uploads/2019/02/20.jpg",
         category: "vegetable",
         dexcription: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque"
     },

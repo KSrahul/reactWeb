@@ -6,37 +6,45 @@ import FilterData from './FilterData';
 
 
 const FilterMain = () => {
-    // const number = [1, 2, 3, 4, 5, 6, 1, 3, 5];
-
     const allItemsValue = [
-        ...new Set(FilterData.map((values) =>{
+        "all", ...new Set(FilterData.map((values) =>{
             return values.category;
-        })), "all"
+        }))
     ];
 
+    const [clickHandleHandle, filterDataFun] = useState(allItemsValue[0]);
     const [filterHading, filterDataHeading] = useState(allItemsValue);
     const [allData, dataFun] = useState(FilterData);
     
     const clickTabs = (itemsName) => {
+        // console.log(itemsName)
         const updateItems = FilterData.filter((currentItem) => {
-            if(currentItem.category == itemsName){
+            if(currentItem.category == itemsName.target.textContent){
                 return currentItem;
             }
-            // console.log(currentItem)
         })
 
-        // console.log(itemsName)
         dataFun(updateItems);
         
-        if(itemsName == "all"){
+        if(itemsName.target.textContent == allItemsValue[0]){
             dataFun(FilterData);
         }
-        // console.log(updateItems)
+        filterDataFun(itemsName.target.textContent);
+        // console.log(clickHandleHandle)
     }
+
+    const classActiveCheck = (tabsName) => {
+        if(clickHandleHandle == tabsName){
+            return "activeTabs";
+        }else{
+            return "";
+        }
+    }
+    // console.log(clickHandleHandle)
 
     return(
         <>
-            <FilterTabs uniquItems={filterHading} filterItemsData={clickTabs}></FilterTabs>
+            <FilterTabs uniquItems={filterHading} filterItemsData={clickTabs} classActive={classActiveCheck}></FilterTabs>
             <FilterItems allCateItems={allData}></FilterItems>
         </>
     )

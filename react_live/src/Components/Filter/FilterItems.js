@@ -5,7 +5,7 @@ const filterAllItems = ({allCateItems}) => {
                 {
                     allCateItems.map((allItems) =>{
                         const {id, image, category, dexcription} = allItems;
-                        return(
+                        return( 
                             <div key={id} className="items_divs">
                                 <img src={image} />
                             </div>
