@@ -1,15 +1,21 @@
-// import logo from './logo.svg';
 import './Main.css';
-import Menu from './Components/Navbar/Menu';
-// import Tabs from './Components/Tabs/Tabs';
-import FilterMain from './Components/Filter/FilterMain'
+import Menu from './Components/Header/Menu';
+import FilterMain from './Components/Sample1/FilterMain'
+import Example2 from './Components/Sample2/Example2';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <>
-      {/* <Menu></Menu>
-      <Tabs></Tabs> */}
-      <FilterMain></FilterMain>
+      <BrowserRouter>
+        <Menu></Menu>
+        <div className="main_container">
+          <Switch>
+              <Route exact path={"/"} component={FilterMain}></Route>
+              <Route exact path={"/Example2"} component={Example2}></Route>
+          </Switch>
+        </div>
+      </BrowserRouter>
     </>
   );
 }

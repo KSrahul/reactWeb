@@ -31,6 +31,7 @@ const FilterMain = () => {
         }
         filterDataFun(itemsName.target.textContent);
         // console.log(clickHandleHandle)
+        // console.log(itemsName.target.textContent)
     }
 
     const classActiveCheck = (tabsName) => {
