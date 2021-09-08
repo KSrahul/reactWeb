@@ -14,24 +14,22 @@ const FilterMain = () => {
 
     const [clickHandleHandle, filterDataFun] = useState(allItemsValue[0]);
     const [filterHading, filterDataHeading] = useState(allItemsValue);
-    const [allData, dataFun] = useState(FilterData);
+    const [allData, filterItemsData] = useState(FilterData);
     
-    const clickTabs = (itemsName) => {
-        // console.log(itemsName)
+    const clickTabs = (itemsName, indexNum) => {
         const updateItems = FilterData.filter((currentItem) => {
-            if(currentItem.category == itemsName.target.textContent){
+            if(currentItem.category == itemsName.target.dataset.name){
                 return currentItem;
             }
         })
 
-        dataFun(updateItems);
+        filterItemsData(updateItems);
         
-        if(itemsName.target.textContent == allItemsValue[0]){
-            dataFun(FilterData);
+        if(itemsName.target.dataset.name == allItemsValue[0]){
+            filterItemsData(FilterData);
         }
-        filterDataFun(itemsName.target.textContent);
-        // console.log(clickHandleHandle)
-        // console.log(itemsName.target.textContent)
+
+        filterDataFun(itemsName.target.dataset.name);
     }
 
     const classActiveCheck = (tabsName) => {
@@ -41,7 +39,6 @@ const FilterMain = () => {
             return "";
         }
     }
-    // console.log(clickHandleHandle)
 
     return(
         <>

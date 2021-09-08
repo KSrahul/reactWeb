@@ -6,8 +6,8 @@ const FilterTabs = ({uniquItems, filterItemsData, classActive}) => {
                     {
                         uniquItems.map((itemsCate, indexVal) => {
                             return(
-                                    <div key={indexVal} className={`tabsLink ${classActive(itemsCate)}`} onClick={filterItemsData}>{itemsCate}</div>
-                                    // <div key={indexVal} data-id={indexVal} className={`tabsLink ${classActive == indexVal ? 'sss' : 'nnn'}`} onClick={() => filterItemsData(itemsCate, indexVal)}>{itemsCate}</div>
+                                    <div key={indexVal} data-name={itemsCate} className={`tabsLink ${classActive(itemsCate)}`} onClick={filterItemsData}>{itemsCate}</div>
+                                    // <div key={indexVal} data-name={itemsCate} className={`tabsLink ${classActive == indexVal ? "sss" : "nnn"}`} onClick={() => filterItemsData(itemsCate, indexVal)}>{itemsCate}</div>
                             )
                         })
                     }
