@@ -63,7 +63,7 @@ const FilterData = [
     },
     {
         id: 11,
-        image: "https://thekapilsharmashow.sonyliv.com/site/assets/files/1260/chandan_-_copy.jpg",
+        image: "https://starsunfolded.com/wp-content/uploads/2016/12/Chandan-Prabhakar-profile.jpg",
         category: "comedian",
         dexcription: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque"
     },

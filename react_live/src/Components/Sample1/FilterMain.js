@@ -2,48 +2,40 @@ import React, { useState } from 'react';
 import Filter from './Filter.css';
 import FilterTabs from './FilterTabs';
 import FilterItems from './FilterItems';
-import FilterData from './FilterData';
+import allFilterData from './FilterData';
 
 
 const FilterMain = () => {
     const allItemsValue = [
-        "all", ...new Set(FilterData.map((values) =>{
+        "all", ...new Set(allFilterData.map((values) =>{
             return values.category;
         }))
     ];
 
-    const [clickHandleHandle, filterDataFun] = useState(allItemsValue[0]);
-    const [filterHading, filterDataHeading] = useState(allItemsValue);
-    const [allData, filterItemsData] = useState(FilterData);
+    const [classActive, classActiveFun] = useState(0);
+    const [filterData, filterItemsData] = useState(allFilterData);
     
     const clickTabs = (itemsName, indexNum) => {
-        const updateItems = FilterData.filter((currentItem) => {
-            if(currentItem.category == itemsName.target.dataset.name){
-                return currentItem;
-            }
+        const updatedItems = allFilterData.filter((currentItem) => {
+            return currentItem.category === itemsName ? currentItem : false;
         })
 
-        filterItemsData(updateItems);
-        
-        if(itemsName.target.dataset.name == allItemsValue[0]){
-            filterItemsData(FilterData);
-        }
+        filterItemsData(updatedItems.length > 0 ? updatedItems : allFilterData)
 
-        filterDataFun(itemsName.target.dataset.name);
-    }
-
-    const classActiveCheck = (tabsName) => {
-        if(clickHandleHandle == tabsName){
-            return "activeTabs";
-        }else{
-            return "";
-        }
+        classActiveFun(indexNum);
     }
 
     return(
         <>
-            <FilterTabs uniquItems={filterHading} filterItemsData={clickTabs} classActive={classActiveCheck}></FilterTabs>
-            <FilterItems allCateItems={allData}></FilterItems>
+            <FilterTabs 
+                uniquItems={allItemsValue}
+                filterItemsData={clickTabs} 
+                classActive={classActive}>
+             </FilterTabs>
+             
+            <FilterItems 
+                allCateItems={filterData}>
+            </FilterItems>
         </>
     )
 }
