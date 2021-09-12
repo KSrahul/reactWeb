@@ -7,19 +7,20 @@ import allFilterData from './FilterData';
 
 const FilterMain = () => {
     const allItemsValue = [
-        "all", ...new Set(allFilterData.map((values) =>{
-            return values.category;
-        }))
+        "all", ...new Set(allFilterData.map((uniqItems) => {
+            return uniqItems.category
+        }))  
     ];
 
-    const [filterSelected, classActiveFun] = useState(allItemsValue[0])
+    const [filterSelected] = useState(allItemsValue[0]);
     const [filterData, filterItemsData] = useState(allFilterData);
+    const [classActiveCheck, classActiveFun] = useState(allItemsValue.indexOf(filterSelected));
     const clickTabs = (itemsName, indexNum) => {
         const updatedItems = allFilterData.filter((currentItem) => {
             return currentItem.category === itemsName ? currentItem : false;
         })
         filterItemsData(updatedItems.length > 0 ? updatedItems : allFilterData)
-        classActiveFun(itemsName);
+        classActiveFun(indexNum);
     }
 
     useEffect(() => {
@@ -34,7 +35,7 @@ const FilterMain = () => {
             <FilterTabs 
                 uniquItems={allItemsValue}
                 filterItemsData={clickTabs} 
-                classActive={filterSelected}>
+                classActive={classActiveCheck}>
              </FilterTabs>
 
             <FilterItems 
