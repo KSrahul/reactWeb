@@ -8,7 +8,7 @@ const FilterTabs = ({uniquItems, filterItemsData, classActive}) => {
                             return(
                                 <div key={indexVal} data-name={itemsCate}
                                     className={
-                                        `tabsLink ${classActive === indexVal ? "activeTabs" : ""}`
+                                        `tabsLink ${classActive === itemsCate ? "activeTabs" : ""}`
                                     }
                                     onClick={() => filterItemsData(itemsCate, indexVal)}
                                 >
