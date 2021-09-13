@@ -1,7 +1,7 @@
 import './Main.css';
 import Menu from './Components/Header/Menu';
 import FilterMain from './Components/Sample1/FilterMain'
-import Example2 from './Components/Sample2/Example2';
+import Example2 from './Components/Sample2/SearchMain';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {

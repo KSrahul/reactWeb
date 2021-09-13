@@ -1,0 +1,25 @@
+.search_input {
+    outline: none;
+    border: 1px solid black;
+    padding: 10px 10px;
+    width: -webkit-fill-available;
+    font-size: 12px;
+}
+.search_pop_icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -42%);
+}
+.cross_icon {
+    display: none;
+    cursor: pointer;
+}
+.search_main {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+.indian_sta{
+    padding-bottom: 10px;
+}
