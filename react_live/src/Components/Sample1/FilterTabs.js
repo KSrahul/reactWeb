@@ -1,16 +1,16 @@
-const FilterTabs = ({uniquItems, filterItemsData, classActive}) => {
+const FilterTabs = (props) => {
     return(
         <>
             <div className="tabs_boxes_container">
                 <div className="tabs_raw">
                     {
-                        uniquItems.map((itemsCate, indexVal) => {
+                        props.uniquItems.map((itemsCate, indexVal) => {
                             return(
                                 <div key={indexVal} data-name={itemsCate}
                                     className={
-                                        `tabsLink ${classActive === indexVal ? "activeTabs" : ""}`
+                                        `tabsLink ${props.classActive === indexVal ? "activeTabs" : ""}`
                                     }
-                                    onClick={() => filterItemsData(itemsCate, indexVal)}
+                                    onClick={() => props.filterItemsData(itemsCate, indexVal)}
                                 >
                                     {itemsCate}
                                 </div>
