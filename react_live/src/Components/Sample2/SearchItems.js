@@ -3,7 +3,7 @@ const SearchItems = (props) => {
         <>
             {
                 props.allItems.map((searchItems) => {
-                    console.log(searchItems)
+                    // console.log(searchItems)
                 })
             }
         </>

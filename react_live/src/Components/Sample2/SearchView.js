@@ -1,10 +1,10 @@
 
-const SearchView = () => {
+const SearchView = (props) => {
     return(
         <div className="search_main">
             <div className="indian_sta">Type.. any state name of India.</div>
             <div className="relative">
-                <input className="search_input" type="text" placeholder="Search your state e.g., Haryana" />
+                <input onChange={props.InputValChange} className="search_input" type="text" placeholder="Search your state e.g., Haryana" />
                 <div className="search_pop_icon">
                     <div className="search-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="22" viewBox="0 0 22 22">
