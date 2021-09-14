@@ -1,8 +1,8 @@
-const SearchItems = ({allItems}) => {
+const SearchItems = (props) => {
     return(
         <>
             {
-                allItems.map((searchItems) => {
+                props.allItems.map((searchItems) => {
                     console.log(searchItems)
                 })
             }
