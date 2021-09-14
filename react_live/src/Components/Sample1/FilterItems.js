@@ -1,4 +1,3 @@
-// uniquItems, filterItemsData, classActive
 const filterAllItems = (props) => {
     return(
         <>

@@ -1,3 +1,4 @@
+// uniquItems, filterItemsData, classActive
 const FilterTabs = (props) => {
     return(
         <>
