@@ -12,7 +12,7 @@ const FilterMain = () => {
         }))  
     ];
 
-    const [filterSelected] = useState(allItemsValue[0]);
+    const [filterSelected] = useState(allItemsValue[4]);
     const [filterData, filterItemsData] = useState(allFilterData);
     const [classActiveCheck, classActiveFun] = useState(allItemsValue.indexOf(filterSelected));
     const clickTabs = (itemsName, indexNum) => {

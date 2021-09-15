@@ -23,3 +23,20 @@
 .indian_sta{
     padding-bottom: 10px;
 }
+.search_content{    
+    position: absolute;
+    top: calc(0px + 37px);
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 40%);
+    background-color: white;
+    width: -webkit-fill-available;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    outline: none;
+}
+.searchItem{
+    padding: 10px 10px;
+    font-family: sans-serif;
+    font-size: 14px;
+    text-align: left;
+}

@@ -1,5 +1,17 @@
-
-const SearchView = () => {
+import React, { useState } from 'react'
+import SearchCss from '../Sample2/Search.css'
+import JsonSearchData from './SearchData.json'
+const NewSearch = () => {
+    const [filterData, setfilterData] = useState([]);
+    const InputValChange = (valInput) => {
+        const searchText = valInput.target.value.toLowerCase();
+        const newSearchData = JsonSearchData.filter((value) => {
+            const findState = value.statename.toLowerCase();
+            return findState.includes(searchText);
+        });
+        
+        setfilterData(newSearchData);
+    }
     return(
         <div className="search_main">
             <div className="indian_sta">Type.. any state name of India.</div>
@@ -7,7 +19,7 @@ const SearchView = () => {
                 <input onChange={InputValChange} className="search_input" type="text" placeholder="Search your state e.g., Haryana" />
                 <div className="search_pop_icon">
                     {
-                        toggleIcon > 0 ?
+                        filterData.length > 0 ?
                             <div className="cross_icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="22" viewBox="0 0 22 22">
                                     <g fill="none" fillRule="evenodd">
@@ -27,8 +39,24 @@ const SearchView = () => {
                         </div>
                     }
                 </div>
+                
+                {
+                    filterData.length > 0 ?
+                        <div className="search_content">
+                            {
+                                filterData.map((searchItes, index) => {
+                                    return(
+                                        <div key={index} className="searchItem allEl">{searchItes.statename}</div> 
+                                    )
+                                })
+                            }
+                        </div>
+                    :false
+                }
             </div>
         </div>
     )
 }
-export default SearchView;
+
+
+export default NewSearch
