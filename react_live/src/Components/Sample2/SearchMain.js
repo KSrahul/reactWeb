@@ -1,33 +1,37 @@
-// import React, { useState } from 'react'
-// import SearchCss from '../Sample2/Search.css'
-// import SearchView from './SearchView'
-// import SearchDataaa from './SearchData'
-// import SearchData from './SearchData'
-// import SearchItems from './SearchItems'
-// const Example2 = () => {
-//     const [inputVal, inputValFun] = useState("");
-//     // const [SearchDatas, SearchDataFun] = useState(SearchData);
-//     // const [SearchDatassss, SearchDataDefault] = useState(SearchData);
-//     const [SearchDatas, SearchDataFun] = useState(SearchDataaa);
-//     const InputValChange = (valInput) => {
-//         const valueSearch = valInput.target.value.toLowerCase();
-//         inputValFun(valueSearch)
-//         const someName = SearchDataaa.filter((searchItems, valIndex) =>{
-//             if(searchItems.includes(valueSearch)){
-//                 return searchItems;
-//             }
-//         })
-//         // console.log(someName);
+import React, { useState } from 'react'
+import SearchCss from '../Sample2/Search.css'
+import JsonSearchData from './SearchData.json'
+import SearchItems from './SearchItems'
+import InputSearchView from './InputSearchView'
+const SearchMain = () => {
+    const [filterSearchData, setSearchData] = useState(JsonSearchData);
+    const InputValueChange = (valInput) => {
+        const searchText = valInput.target.value.toLowerCase();
+        const newSearchData = JsonSearchData.filter((value) => {
+            const findState = value.statename.toLowerCase();
+            return findState.includes(searchText);
+        });
+        
+        setSearchData(newSearchData);
+    }
+    return(
+        <div className="search_main">
+            <div className="indian_sta">Type.. any state name of India.</div>
+            <div className="relative">
 
-//         // // SearchDataFun(someName);
-//         // console.log(SearchDatas)
-//     }
-//     return(
-//         <>
-//             <SearchView InputValChange={InputValChange} toggleIcon={inputVal.length}></SearchView>
-//             <SearchItems allItems={SearchData}></SearchItems>
-//         </>
-//     )
-// }
+                <InputSearchView 
+                    InputValChange={InputValueChange}
+                    searchIconToggle={filterSearchData}>
+                 </InputSearchView>
 
-// export default Example2
+                <SearchItems 
+                    searchItemsData={filterSearchData}>
+                </SearchItems>
+                
+            </div>
+        </div>
+    )
+}
+
+
+export default SearchMain
