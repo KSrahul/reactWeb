@@ -4,7 +4,7 @@ const InputSearchView = (props) => {
             <input onChange={props.InputValChange} value={props.inputSetValue} className="search_input" type="text" placeholder="Search your state e.g., Haryana" />
             <div className="search_pop_icon">
                 {
-                    props.searchIconToggle.length > 0 ?
+                    props.inputSetValue.length > 0 ?
                         <div className="cross_icon" onClick={props.removeInputVal}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="22" viewBox="0 0 22 22">
                                 <g fill="none" fillRule="evenodd">

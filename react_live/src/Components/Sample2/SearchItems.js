@@ -7,7 +7,7 @@ const SearchItems = (props) => {
                         {
                             props.searchItemsData.map((searchItes, index) => {
                                 return(
-                                    <div key={index} className="searchItem allEl">{searchItes.statename}</div> 
+                                    <div key={index} className="searchItem">{searchItes.statename}</div> 
                                 )
                             })
                         }

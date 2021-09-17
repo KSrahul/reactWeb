@@ -28,7 +28,6 @@ const SearchMain = () => {
 
                 <InputSearchView 
                     InputValChange={InputValueChange}
-                    searchIconToggle={filterSearchData}
                     removeInputVal={removeInputVal}
                     inputSetValue={wordEnter}>
                  </InputSearchView>
