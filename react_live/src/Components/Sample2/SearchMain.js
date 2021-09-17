@@ -37,6 +37,13 @@ const SearchMain = () => {
                 </SearchItems>
                 
             </div>
+            {
+                wordEnter.length > 0 && filterSearchData.length === 0 ?
+                    <>
+                        <div className="show_error">No Result Found :(</div>
+                    </>
+                : false
+            }
         </div>
     )
 }
