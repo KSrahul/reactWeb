@@ -1,11 +1,11 @@
 const InputSearchView = (props) => {
     return(
         <>
-            <input onChange={props.InputValChange} className="search_input" type="text" placeholder="Search your state e.g., Haryana" />
+            <input onChange={props.InputValChange} value={props.inputSetValue} className="search_input" type="text" placeholder="Search your state e.g., Haryana" />
             <div className="search_pop_icon">
                 {
                     props.searchIconToggle.length > 0 ?
-                        <div className="cross_icon">
+                        <div className="cross_icon" onClick={props.removeInputVal}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="22" viewBox="0 0 22 22">
                                 <g fill="none" fillRule="evenodd">
                                     <path fill="#BDBDBD" d="M11 21C5.477 21 1 16.523 1 11S5.477 1 11 1s10 4.477 10 10-4.477 10-10 10zm.95-10l2.853-2.852a.672.672 0 10-.95-.951L11 10.049 8.148 7.197a.672.672 0 10-.951.95L10.049 11l-2.852 2.852a.672.672 0 00.95.951L11 11.951l2.852 2.852a.672.672 0 10.951-.95L11.951 11z"></path>
