@@ -11,8 +11,8 @@ function App() {
         <Menu></Menu>
         <div className="main_container">
           <Switch>
-              <Route exact path={"/"} component={FilterMain}></Route>
-              <Route exact path={"/Example2"} component={Example2}></Route>
+              <Route exact path='/' component={FilterMain}></Route>
+              <Route exact path='/Example2' component={Example2}></Route>
           </Switch>
         </div>
       </BrowserRouter>
