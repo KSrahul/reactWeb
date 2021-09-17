@@ -14,7 +14,7 @@ const SearchMain = () => {
             return findState.includes(searchText);
         });
         
-        setSearchDataFun(newSearchData);
+        searchText === "" ? setSearchDataFun([]) : setSearchDataFun(newSearchData);
     }
     const removeInputVal = () => {
         setSearchDataFun([]);
