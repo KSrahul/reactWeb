@@ -7,3 +7,7 @@
 .searchItem{padding:10px 10px;font-family:sans-serif;font-size:14px;text-align:left}
 .show_error{padding-top:6px;color:red}
 .searchItem:hover{background-color:#d63428;color:#fff}
+
+@media (max-width: 750px){
+    .search_main{width: 96%;}
+}
