@@ -23,10 +23,6 @@ const SearchMain = () => {
     const hoverText = (hoverVal) => {
         wordEnterFun(hoverVal);
     }
-    const clickState = (stateName) => {
-        wordEnterFun(stateName);
-        setSearchDataFun([]);
-    }
 
     return(
         <div className="search_main">
@@ -41,8 +37,7 @@ const SearchMain = () => {
 
                 <SearchItems 
                     searchItemsData={filterSearchData}
-                    onHover={hoverText}
-                    clickItems={clickState}>
+                    onHover={hoverText}>
                 </SearchItems>
                 
             </div>

@@ -1,7 +1,7 @@
 const InputSearchView = (props) => {
     return(
         <>
-            <input onChange={props.InputValChange} value={props.inputSetValue} className="search_input" type="text" placeholder="Search your state e.g., Haryana" />
+            <input onChange={props.InputValChange} value={props.inputSetValue} className="search_input" type="text" placeholder="Search your state, e.g Haryana" />
             <div className="search_pop_icon">
                 {
                     props.inputSetValue.length > 0 ?

@@ -4,6 +4,7 @@
     padding: 10px 10px;
     width: -webkit-fill-available;
     font-size: 12px;
+    /* text-transform: capitalize; */
 }
 .search_pop_icon {
     position: absolute;
@@ -39,7 +40,7 @@
     font-family: sans-serif;
     font-size: 14px;
     text-align: left;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 .show_error {
     padding-top: 6px;
