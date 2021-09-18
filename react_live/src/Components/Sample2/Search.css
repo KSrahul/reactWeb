@@ -47,5 +47,6 @@
     color: red;
 }
 .searchItem:hover {
-    background-color: yellow;
+    background-color: #d63428;
+    color: white;
 }
