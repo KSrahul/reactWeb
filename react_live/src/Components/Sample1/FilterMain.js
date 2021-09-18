@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Filter from './Filter.css';
+import {} from './Filter.css';
 import FilterTabs from './FilterTabs';
 import FilterItems from './FilterItems';
 import allFilterData from './FilterData';

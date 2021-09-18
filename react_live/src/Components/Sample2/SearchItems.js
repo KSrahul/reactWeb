@@ -7,7 +7,11 @@ const SearchItems = (props) => {
                         {
                             props.searchItemsData.map((searchItes, index) => {
                                 return(
-                                    <div key={index} className="searchItem">{searchItes.statename}</div> 
+                                    <div key={index} className="searchItem" 
+                                        onMouseOver={() => props.onHover(searchItes.statename)} 
+                                        onClick={() => props.clickItems(searchItes.statename)}>
+                                        {searchItes.statename}
+                                    </div>
                                 )
                             })
                         }

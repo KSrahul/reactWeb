@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import SearchCss from '../Sample2/Search.css'
+import {} from '../Sample2/Search.css'
 import JsonSearchData from './SearchData.json'
 import SearchItems from './SearchItems'
 import InputSearchView from './InputSearchView'
@@ -20,6 +20,13 @@ const SearchMain = () => {
         setSearchDataFun([]);
         wordEnterFun("");
     }
+    const hoverText = (hoverVal) => {
+        wordEnterFun(hoverVal);
+    }
+    const clickState = (stateName) => {
+        wordEnterFun(stateName);
+        setSearchDataFun([]);
+    }
 
     return(
         <div className="search_main">
@@ -33,7 +40,9 @@ const SearchMain = () => {
                  </InputSearchView>
 
                 <SearchItems 
-                    searchItemsData={filterSearchData}>
+                    searchItemsData={filterSearchData}
+                    onHover={hoverText}
+                    clickItems={clickState}>
                 </SearchItems>
                 
             </div>
