@@ -1,7 +1,7 @@
-.tabs_raw{display: flex;justify-content: space-between;background-color: white;color: black;padding: 20px 20px;border-radius: 10px;border: 1px solid #cac9c9;width: 60%;}
+.tabs_raw{display: flex;justify-content: space-between;background-color: white;color: black;padding: 20px 20px;border-radius: 10px;border: 0px solid #cac9c9;width: 60%;box-shadow: 0 0 6px 0 rgb(134 134 134 / 50%);}
 .items_main {display: flex;flex-wrap: wrap;padding: 20px;}
 .items_divs {width: calc(25% - 20px);margin: 10px;}
-.items_divs > img {width: 100%;object-fit: cover;height: 300px;transition: 0.6s;cursor: pointer;}
+.items_divs > img {width: 100%;object-fit: cover;height: 300px;transition: 0.6s;cursor: pointer;box-shadow: 0 0 6px 0 rgb(134 134 134 / 50%);border-radius: 10px;}
 .items_divs > img:hover{transform: scale(0.9);}
 .tabsLink {text-transform: capitalize;cursor: pointer;padding: 4px 14px;color: blue;}
 .activeTabs{border-bottom: 2px solid red;}
