@@ -10,8 +10,8 @@
 @media (max-width: 750px){
     .items_divs{width: calc(100% - 20px);}
     .tabs_raw{width: 100%;overflow-x: auto;}
-    .items_main{padding: 10px;width: 100%;}
-    .tabs_boxes_container {width: calc(100% - 20px);}
+    .items_main{padding: 0px;width: 100%;}
+    .tabs_boxes_container {width: calc(100% - 20px);margin: auto;}
     .header_main{width: 100%;padding: 0px;}
     .menu_list{white-space: nowrap;overflow-x: auto;}
 }

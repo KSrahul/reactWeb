@@ -16,3 +16,6 @@ code {
     monospace;
 }
 .main_container{margin-top: 90px;color: black;}
+@media (max-width: 750px){
+  .main_container{margin-top: 20px;}
+}
