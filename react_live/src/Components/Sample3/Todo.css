@@ -39,7 +39,6 @@
     position: absolute;
     top: calc(0px - 18px);
     right: 0;
-    cursor: pointer;
 }
 
 .added_items{

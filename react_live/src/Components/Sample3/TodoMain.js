@@ -42,7 +42,7 @@ const TodoMain = () => {
                         placeholder="Add New Task" 
                     />
 
-                    <div className="add_btn" 
+                    <div className="add_btn pointer" 
                         onClick={addItems}>
                         +
                     </div>
