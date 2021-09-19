@@ -6,7 +6,7 @@ const TodoItems = (props) => {
                     return(
                         <div className="flex added_items" key={itemIndex}>
                             <div className="task_name">{itemName}</div>
-                            <div className="remove_item flex pointer">
+                            <div className="remove_item flex pointer" onClick={() => props.removeItems(itemName, itemIndex)}>
                                 <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' 
                                     viewBox='0 0 24 24' fill='none' stroke='#ff3d46' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
                                     <polyline points='3 6 5 6 21 6' />

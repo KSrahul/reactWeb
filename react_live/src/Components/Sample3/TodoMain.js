@@ -8,21 +8,28 @@ const TodoMain = () => {
     const ItemsAdding = addInputVal.concat(inputVal);
 
     const inputType = (event) => {
-        inputValFunc(event.target.value)
+        inputValFunc(event.target.value);
     }
 
     const addItems = () => {
         if(inputVal.length > 0){
             inputValFunc("");
-            addInputValFun(ItemsAdding)
+            addInputValFun(ItemsAdding);
         }
     }
 
     const keyCheck = (event) => {
         if(event.key === "Enter" && inputVal.length > 0){
             inputValFunc("");
-            addInputValFun(ItemsAdding)
+            addInputValFun(ItemsAdding);
         }
+    }
+
+    const removeSelectedItems = (targetItems, targetId) => {
+        const newTodo = addInputVal.filter((todoNew, todoNewId) =>{
+            return todoNewId !== targetId;
+        })
+        addInputValFun(newTodo);
     }
 
     useEffect(() => {
@@ -51,7 +58,8 @@ const TodoMain = () => {
                     addInputVal.length > 0 ? 
                         <div className="all_todo">
                             <TodoItems 
-                                listName={addInputVal}>
+                                listName={addInputVal}
+                                removeItems={removeSelectedItems}>
                             </TodoItems>
                         </div>
                     :false
