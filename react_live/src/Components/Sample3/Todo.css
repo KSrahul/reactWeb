@@ -60,13 +60,13 @@
 .added_items:last-child {
     margin-bottom: 0px;
 }
-.marked_done{    
-    text-decoration: line-through;
-}
 .remove_item {
     margin-left: 10px;
 }
-.eye_mark:hover > .lin_eye, .task_done > .lin_eye{
+.marked_done .task_name{    
+    text-decoration: line-through;
+}
+.eye_mark:hover .lin_eye, .marked_done .lin_eye{
     position: absolute;
     width: 100%;
     background-color: red;
@@ -74,6 +74,7 @@
     transform: rotate(135deg);
     top: 10px;
 }
+
 @media (max-width: 750px){
     .todo_main{width: calc(100% - 56px);}
 }
