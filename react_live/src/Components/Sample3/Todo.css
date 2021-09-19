@@ -42,6 +42,25 @@
     cursor: pointer;
 }
 
+.added_items{
+    justify-content: space-between;
+    background-color: #191933;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding: 8px;
+    align-items: center;
+}
+.all_todo {
+    margin-top: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.all_todo::-webkit-scrollbar{
+    display: none;
+}
+.added_items:last-child {
+    margin-bottom: 0px;
+}
 @media (max-width: 750px){
     .todo_main{width: calc(100% - 56px);}
 }
