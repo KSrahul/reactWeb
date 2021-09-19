@@ -1,7 +1,13 @@
-const TodoItems = () => {
+const TodoItems = (props) => {
     return(
         <>
-            {/* Rahul Alam */}
+            {
+                props.listName.map((itemName, itemIndex) =>{
+                    return(
+                        <div key={itemIndex}>{itemName}</div>
+                    )
+                })
+            }
         </>
     )
 }
