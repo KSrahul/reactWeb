@@ -5,7 +5,7 @@ import TodoItems from './TodoItems'
 const getTodoFromLS = () =>{
     const todoLS = localStorage.getItem("allTodoData");
     if(todoLS){
-        return JSON.parse(localStorage.getItem("allTodoData"))
+        return JSON.parse(todoLS);
     }else{
         return [];
     }
