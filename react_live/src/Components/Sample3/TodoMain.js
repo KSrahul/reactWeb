@@ -12,7 +12,7 @@ const getTodoFromLS = () =>{
 }
 const TodoMain = () => {
     const inputFocus = useRef(null);
-    const [inputValue, setInputValue] = useState("")
+    const [inputValue, setInputValue] = useState("");
     const [addInputVals, addInputValFuns] = useState(getTodoFromLS());
     const todoDataObj = () =>{
         addInputValFuns(
