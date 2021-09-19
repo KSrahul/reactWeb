@@ -1,7 +1,7 @@
 const TodoItems = () => {
     return(
         <>
-            Rahul Alam
+            {/* Rahul Alam */}
         </>
     )
 }

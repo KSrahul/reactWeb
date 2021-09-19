@@ -1,0 +1,47 @@
+.todo_main {
+    width: 40%;
+    margin: 0px auto;
+    background-color: #4fd1c5;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(134 134 134 / 50%);
+    min-height: 140px;
+}
+.todo_text {
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 26px;
+    text-align: center;
+}
+.input_add > input {
+    border: 0px;
+    width: calc(100% - 50px);
+    border-bottom: 1px solid #fff;
+    background-color: unset;
+    outline: none;
+    color: white;
+    padding: 0px 0px 6px 0px;
+    font-size: 14px;
+}
+.input_add > input::placeholder{
+    color: white;
+}
+.add_btn {
+    background-color: #bf6e6e;
+    font-size: 31px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(0px - 18px);
+    right: 0;
+    cursor: pointer;
+}
+
+@media (max-width: 750px){
+    .todo_main{width: calc(100% - 56px);}
+}
