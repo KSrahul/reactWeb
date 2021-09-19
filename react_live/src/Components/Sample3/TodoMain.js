@@ -12,36 +12,46 @@ const getTodoFromLS = () =>{
 }
 const TodoMain = () => {
     const inputFocus = useRef(null);
-    const [inputVal, inputValFunc] = useState("")
-    const [addInputVal, addInputValFun] = useState(getTodoFromLS());
-    const ItemsAdding = addInputVal.concat(inputVal);
-
+    const [inputValue, setInputValue] = useState("")
+    const [addInputVals, addInputValFuns] = useState(getTodoFromLS());
+    const todoDataObj = () =>{
+        addInputValFuns(
+            [...addInputVals,
+                {
+                    id : new Date().getTime().toString(),
+                    listName : inputValue,
+                    isDone : false,
+                    isRemove : false,
+                }
+            ]
+        )
+    }
     const inputType = (event) => {
-        inputValFunc(event.target.value);
+        setInputValue(event.target.value);
     }
 
     const addItems = () => {
-        if(inputVal.length > 0){
-            inputValFunc("");
-            addInputValFun(ItemsAdding);
+        if(inputValue.length > 0){
+            setInputValue("");
+            todoDataObj();
         }
     }
 
     const keyCheck = (event) => {
-        if(event.key === "Enter" && inputVal.length > 0){
-            inputValFunc("");
-            addInputValFun(ItemsAdding);
+        if(event.key === "Enter" && inputValue.length > 0){
+            setInputValue("");
+            todoDataObj();
         }
     }
 
-    const removeSelectedItems = (targetItems, targetId) => {
-        const newTodo = addInputVal.filter((todoNew, todoNewId) =>{
-            return todoNewId !== targetId;
+    const removeSelectedItems = (targetItems) => {
+        const newTodo = addInputVals.filter((todoNew, todoNewId) =>{
+            return todoNew.id !== targetItems;
         })
-        addInputValFun(newTodo);
+        addInputValFuns(newTodo);
     }
 
-    localStorage.setItem("allTodoData", JSON.stringify(addInputVal));
+    localStorage.setItem("allTodoData", JSON.stringify(addInputVals));
     
     useEffect(() => {
         inputFocus.current.focus();
@@ -54,7 +64,7 @@ const TodoMain = () => {
                     <input 
                         onChange={inputType}
                         onKeyDown={keyCheck}
-                        value={inputVal}
+                        value={inputValue}
                         ref={inputFocus}
                         type="text" 
                         placeholder="Add New Task" 
@@ -66,10 +76,10 @@ const TodoMain = () => {
                     </div>
                 </div>
                 {
-                    addInputVal.length > 0 ? 
+                    addInputVals.length > 0 ? 
                         <div className="all_todo">
                             <TodoItems 
-                                listName={addInputVal}
+                                listName={addInputVals}
                                 removeItems={removeSelectedItems}>
                             </TodoItems>
                         </div>

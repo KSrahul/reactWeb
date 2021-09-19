@@ -4,8 +4,8 @@ const TodoItems = (props) => {
             {
                 props.listName.map((itemName, itemIndex) =>{
                     return(
-                        <div className="flex added_items" key={itemIndex}>
-                            <div className="task_name">{itemName}</div>
+                        <div className="flex added_items" key={itemName.id}>
+                            <div className="task_name">{itemName.listName}</div>
                             <div className="flex">
                                 <div className="pointer eye_mark relative flex">
                                     <svg fill="white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -13,7 +13,7 @@ const TodoItems = (props) => {
                                     </svg>
                                     <div className="lin_eye"></div>
                                 </div>
-                                <div className="remove_item flex pointer" onClick={() => props.removeItems(itemName, itemIndex)}>
+                                <div className="remove_item flex pointer" onClick={() => props.removeItems(itemName.id)}>
                                     <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' 
                                         viewBox='0 0 24 24' fill='none' stroke='#ff3d46' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'>
                                         <polyline points='3 6 5 6 21 6' />
