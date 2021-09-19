@@ -1,10 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react'
 import {} from './Todo.css'
 import TodoItems from './TodoItems'
+
+const getTodoFromLS = () =>{
+    const todoLS = localStorage.getItem("allTodoData");
+    if(todoLS){
+        return JSON.parse(localStorage.getItem("allTodoData"))
+    }else{
+        return [];
+    }
+}
 const TodoMain = () => {
     const inputFocus = useRef(null);
     const [inputVal, inputValFunc] = useState("")
-    const [addInputVal, addInputValFun] = useState([]);
+    const [addInputVal, addInputValFun] = useState(getTodoFromLS());
     const ItemsAdding = addInputVal.concat(inputVal);
 
     const inputType = (event) => {
@@ -32,13 +41,15 @@ const TodoMain = () => {
         addInputValFun(newTodo);
     }
 
+    localStorage.setItem("allTodoData", JSON.stringify(addInputVal));
+    
     useEffect(() => {
         inputFocus.current.focus();
-    }, [inputFocus])
+    }, [])
       return(
           <>
             <div className="todo_main">
-                <div className="todo_text">TO DO LIST</div>
+                <div className="todo_text">Add Your Todo List</div>
                 <div className="input_add relative">
                     <input 
                         onChange={inputType}
