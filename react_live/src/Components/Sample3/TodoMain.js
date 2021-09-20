@@ -13,10 +13,10 @@ const getTodoFromLS = () =>{
 const TodoMain = () => {
     const inputFocus = useRef(null);
     const [inputValue, setInputValue] = useState("");
-    const [addInputValue, setValueInput] = useState(getTodoFromLS());
+    const [toDoObject, setToDoObject] = useState(getTodoFromLS());
     const todoDataObj = () =>{
-        setValueInput(
-            [...addInputValue,
+        setToDoObject(
+            [...toDoObject,
                 {
                     id : new Date().getTime().toString(),
                     listName : inputValue,
@@ -45,14 +45,14 @@ const TodoMain = () => {
     }
 
     const removeSelectedItems = (targetTodoItem) => {
-        const restTodoData = addInputValue.filter((todoNew) =>{
+        const restTodoData = toDoObject.filter((todoNew) =>{
             return todoNew.id !== targetTodoItem;
         })
-        setValueInput(restTodoData);
+        setToDoObject(restTodoData);
     }
 
     const markAsDone = (itemObj) => {
-        const markedReadData = addInputValue.filter((markedRead) => {
+        const markedReadData = toDoObject.filter((markedRead) => {
             if(markedRead.id === itemObj.id){
                 markedRead.isDone === false ? 
                 markedRead.isDone = true : 
@@ -61,10 +61,10 @@ const TodoMain = () => {
             return markedRead;
         })
 
-        setValueInput(markedReadData);
+        setToDoObject(markedReadData);
     }
 
-    localStorage.setItem("allTodoData", JSON.stringify(addInputValue));
+    localStorage.setItem("allTodoData", JSON.stringify(toDoObject));
     
     useEffect(() => {
         inputFocus.current.focus();
@@ -89,10 +89,10 @@ const TodoMain = () => {
                     </div>
                 </div>
                 {
-                    addInputValue.length > 0 ? 
+                    toDoObject.length > 0 ? 
                         <div className="all_todo">
                             <TodoItems 
-                                allTodoList={addInputValue}
+                                allTodoList={toDoObject}
                                 removeItems={removeSelectedItems}
                                 markRead={markAsDone}>
                             </TodoItems>
