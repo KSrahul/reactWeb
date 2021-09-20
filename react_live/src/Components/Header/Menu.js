@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import {} from './navbar.css';
-import {Link, NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const Menu = () => {
     return (
@@ -11,13 +11,13 @@ const Menu = () => {
                 </div>
                 <ul className="flex menu_list">             
                     <li>
-                        <NavLink exact to="/">Sample1</NavLink>
+                        <Link to="/">Sample1</Link>
                     </li>
                     <li>
-                        <NavLink exact to="/Example2">Sample2</NavLink>
+                        <Link to="/Example2">Sample2</Link>
                     </li>
                     <li>
-                        <NavLink exact to="/Example3">Sample3</NavLink>
+                        <Link to="/Example3">Sample3</Link>
                     </li>
                 </ul>
             </div>
