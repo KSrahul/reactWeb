@@ -77,6 +77,9 @@
     transform: rotate(135deg);
     top: 10px;
 }
+.marked_done .eye_mark > svg{
+    fill: #d8d5d5;
+}
 
 @media (max-width: 750px){
     .todo_main{width: calc(100% - 56px);}
