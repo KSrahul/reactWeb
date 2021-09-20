@@ -51,6 +51,19 @@ const TodoMain = () => {
         setValueInput(newTodo);
     }
 
+    const markAsDone = (itemObj) => {
+        const markedReadData = addInputValue.filter((markedRead) => {
+            if(markedRead.id === itemObj.id){
+                markedRead.isDone === false ? 
+                markedRead.isDone = true : 
+                markedRead.isDone = false;
+            }
+            return markedRead;
+        })
+
+        setValueInput(markedReadData);
+    }
+
     localStorage.setItem("allTodoData", JSON.stringify(addInputValue));
     
     useEffect(() => {
@@ -80,7 +93,8 @@ const TodoMain = () => {
                         <div className="all_todo">
                             <TodoItems 
                                 listName={addInputValue}
-                                removeItems={removeSelectedItems}>
+                                removeItems={removeSelectedItems}
+                                markRead={markAsDone}>
                             </TodoItems>
                         </div>
                     :false
