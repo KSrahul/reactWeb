@@ -14,6 +14,7 @@ const TodoMain = () => {
     const inputFocus = useRef(null);
     const [inputValue, setInputValue] = useState("");
     const [toDoObject, setToDoObject] = useState(getTodoFromLS());
+    const [getEditText, setEditText] = useState("");
     const todoDataObj = () =>{
         setToDoObject(
             [...toDoObject,
@@ -64,6 +65,19 @@ const TodoMain = () => {
         setToDoObject(markedReadData);
     }
 
+    const editTodoItems = (editObj) => {
+        const editField = prompt("Edit", editObj.listName);
+        if(editField !== null){
+            const editedData = toDoObject.filter((edited) => {
+                if(edited.id === editObj.id){
+                    editObj.listName = editField;
+                }
+                return edited;
+            })
+            setToDoObject(editedData);
+        }
+    }
+
     localStorage.setItem("allTodoData", JSON.stringify(toDoObject));
     
     useEffect(() => {
@@ -94,7 +108,8 @@ const TodoMain = () => {
                             <TodoItems 
                                 allTodoList={toDoObject}
                                 removeItems={removeSelectedItems}
-                                markRead={markAsDone}>
+                                markRead={markAsDone}
+                                editItems={editTodoItems}>
                             </TodoItems>
                             <div className="clear_items pointer" onClick={() => setToDoObject([])}>Clear Items</div>
                         </div>

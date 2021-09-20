@@ -46,7 +46,7 @@
     background-color: #191933;
     border-radius: 4px;
     margin-bottom: 12px;
-    padding: 10px 10px;
+    padding: 12px 10px;
     align-items: center;
 }
 .all_todo {
@@ -61,14 +61,21 @@
     margin-bottom: 0px;
 }
 .remove_item {
-    margin-left: 10px;
+    /* margin-left: 10px; */
+}
+.right_icons{
+    align-items: center;
 }
 .marked_done{
     background-color: #989898;
 }
+.task_name{
+    outline: none;
+}
 .marked_done .task_name{    
     text-decoration: line-through;
 }
+.eye_mark{margin:0px  16px;}
 .eye_mark:hover .lin_eye, .marked_done .lin_eye{
     position: absolute;
     width: 100%;
