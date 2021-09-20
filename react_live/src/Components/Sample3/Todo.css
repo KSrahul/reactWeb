@@ -87,6 +87,8 @@
 .marked_done .eye_mark > svg{
     fill: #d8d5d5;
 }
+.marked_done .edit_icon{pointer-events: none;}
+.marked_done .edit_icon > svg{fill: #d8d5d5;}
 .clear_items {
     width: max-content;
     margin: auto;
