@@ -96,6 +96,7 @@ const TodoMain = () => {
                                 removeItems={removeSelectedItems}
                                 markRead={markAsDone}>
                             </TodoItems>
+                            <div className="clear_items pointer" onClick={() => setToDoObject([])}>Clear Items</div>
                         </div>
                     :false
                 }
