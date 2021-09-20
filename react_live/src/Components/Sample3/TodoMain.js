@@ -44,11 +44,11 @@ const TodoMain = () => {
         }
     }
 
-    const removeSelectedItems = (targetItems) => {
-        const newTodo = addInputValue.filter((todoNew, todoNewId) =>{
-            return todoNew.id !== targetItems;
+    const removeSelectedItems = (targetTodoItem) => {
+        const restTodoData = addInputValue.filter((todoNew) =>{
+            return todoNew.id !== targetTodoItem;
         })
-        setValueInput(newTodo);
+        setValueInput(restTodoData);
     }
 
     const markAsDone = (itemObj) => {
@@ -92,7 +92,7 @@ const TodoMain = () => {
                     addInputValue.length > 0 ? 
                         <div className="all_todo">
                             <TodoItems 
-                                listName={addInputValue}
+                                allTodoList={addInputValue}
                                 removeItems={removeSelectedItems}
                                 markRead={markAsDone}>
                             </TodoItems>

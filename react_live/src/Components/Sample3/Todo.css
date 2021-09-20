@@ -63,6 +63,9 @@
 .remove_item {
     margin-left: 10px;
 }
+.marked_done{
+    background-color: #989898;
+}
 .marked_done .task_name{    
     text-decoration: line-through;
 }
