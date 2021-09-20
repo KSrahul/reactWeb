@@ -13,10 +13,10 @@ const getTodoFromLS = () =>{
 const TodoMain = () => {
     const inputFocus = useRef(null);
     const [inputValue, setInputValue] = useState("");
-    const [addInputVals, addInputValFuns] = useState(getTodoFromLS());
+    const [addInputValue, setValueInput] = useState(getTodoFromLS());
     const todoDataObj = () =>{
-        addInputValFuns(
-            [...addInputVals,
+        setValueInput(
+            [...addInputValue,
                 {
                     id : new Date().getTime().toString(),
                     listName : inputValue,
@@ -45,13 +45,13 @@ const TodoMain = () => {
     }
 
     const removeSelectedItems = (targetItems) => {
-        const newTodo = addInputVals.filter((todoNew, todoNewId) =>{
+        const newTodo = addInputValue.filter((todoNew, todoNewId) =>{
             return todoNew.id !== targetItems;
         })
-        addInputValFuns(newTodo);
+        setValueInput(newTodo);
     }
 
-    localStorage.setItem("allTodoData", JSON.stringify(addInputVals));
+    localStorage.setItem("allTodoData", JSON.stringify(addInputValue));
     
     useEffect(() => {
         inputFocus.current.focus();
@@ -76,10 +76,10 @@ const TodoMain = () => {
                     </div>
                 </div>
                 {
-                    addInputVals.length > 0 ? 
+                    addInputValue.length > 0 ? 
                         <div className="all_todo">
                             <TodoItems 
-                                listName={addInputVals}
+                                listName={addInputValue}
                                 removeItems={removeSelectedItems}>
                             </TodoItems>
                         </div>
