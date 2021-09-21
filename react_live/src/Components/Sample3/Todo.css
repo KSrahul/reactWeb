@@ -60,9 +60,6 @@
 .added_items:last-child {
     margin-bottom: 0px;
 }
-.remove_item {
-    /* margin-left: 10px; */
-}
 .right_icons{
     align-items: center;
 }
