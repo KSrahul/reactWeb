@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import {} from './Todo.css'
 import TodoItems from './TodoItems'
 import EditTodo from './EditTodo';
+import ToDoTextFiled from './ToDoTextFiled';
 
 const getTodoFromLS = () =>{
     const todoLS = localStorage.getItem("allTodoData");
@@ -29,18 +30,18 @@ const TodoMain = () => {
             ]
         )
     }
-    const inputType = (event) => {
+    const inputOnType = (event) => {
         setInputValue(event.target.value);
     }
 
-    const addItems = () => {
+    const addItemBtn = () => {
         if(inputValue.length > 0){
             setInputValue("");
             todoDataObj();
         }
     }
 
-    const keyCheck = (event) => {
+    const keyTypeCheck = (event) => {
         if(event.key === "Enter" && inputValue.length > 0){
             setInputValue("");
             todoDataObj();
@@ -78,7 +79,7 @@ const TodoMain = () => {
         }
     }
 
-    const saveEditValues = () => {
+    const saveEditData = () => {
         const editedTodoData = toDoDataObject.filter((editedData) => {
             if (editedData.id === editItemObj.id) {                
                 editedData.listName = editeTextField;
@@ -91,7 +92,7 @@ const TodoMain = () => {
 
     const textareaEnterPress = (event) => {
         if (event.key === "Enter") {
-            saveEditValues();
+            saveEditData();
         }
     }
 
@@ -110,32 +111,15 @@ const TodoMain = () => {
           <>
             <div className="todo_main">
                 <div className="todo_text">Add Your Todo List</div>
-                {
-                    editeTextField.length > 0 ?
-                        <EditTodo
-                            removeEditText={closeEditModal}
-                            editTodoValue={newEditValue}
-                            textareaEnter={textareaEnterPress}
-                            editeTodoField={editeTextField}
-                            saveEditValue={saveEditValues}>
-                        </EditTodo>
-                    :false
-                }
-                <div className="input_add relative">
-                    <input 
-                        onChange={inputType}
-                        onKeyDown={keyCheck}
-                        value={inputValue}
-                        ref={inputFocus}
-                        type="text" 
-                        placeholder="Add New Task" 
-                    />
+                
+                <ToDoTextFiled
+                    inputType={inputOnType}
+                    inputValue={inputValue}
+                    keyCheck={keyTypeCheck}
+                    inputFocus={inputFocus}
+                    addItems={addItemBtn}>
+                </ToDoTextFiled>
 
-                    <div className="add_btn pointer" 
-                        onClick={addItems}>
-                        +
-                    </div>
-                </div>
                 {
                     toDoDataObject.length > 0 ? 
                         <div className="all_todo">
@@ -145,8 +129,26 @@ const TodoMain = () => {
                                 markRead={markAsDone}
                                 editItems={editTodoItems}>
                             </TodoItems>
-                            <div className="clear_items pointer" onClick={() => setToDoObject([])}>Clear Items</div>
+                            
+                            <div className="clear_items pointer" 
+                                onClick={
+                                    () => setToDoObject([])
+                                }>
+                                Clear Items
+                            </div>
                         </div>
+                    :false
+                }
+
+                {
+                    editeTextField.length > 0 ?
+                        <EditTodo
+                            removeEditText={closeEditModal}
+                            editTodoValue={newEditValue}
+                            textareaEnter={textareaEnterPress}
+                            editeTodoField={editeTextField}
+                            saveEditValue={saveEditData}>
+                        </EditTodo>
                     :false
                 }
             </div>
