@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import {} from './Todo.css'
 import TodoItems from './TodoItems'
-import EditTodo from './EditTodo';
+import EditTodo from './EditTodoModal';
 import ToDoTextFiled from './ToDoTextFiled';
 
 const getTodoFromLS = () =>{

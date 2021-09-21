@@ -1,4 +1,4 @@
-const EditTodo = (props) => {
+const EditTodoModal = (props) => {
     return (
         <>
             <div className="quick_edit">
@@ -14,4 +14,4 @@ const EditTodo = (props) => {
     )
 }
 
-export default EditTodo
+export default EditTodoModal
