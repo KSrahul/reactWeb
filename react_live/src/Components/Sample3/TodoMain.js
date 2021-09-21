@@ -91,7 +91,7 @@ const TodoMain = () => {
     }
 
     const textareaEnterPress = (event) => {
-        if (event.key === "Enter") {
+        if (event.key === "Enter" || event.key === "Escape") {
             saveEditData();
         }
     }
