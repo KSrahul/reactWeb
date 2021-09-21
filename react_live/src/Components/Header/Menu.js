@@ -14,10 +14,10 @@ const Menu = () => {
                         <NavLink exact activeClassName="active_menu" to="/">Sample1</NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName="active_menu" to="/Example2">Sample2</NavLink>
+                        <NavLink exact activeClassName="active_menu" to="/Example2">Sample2</NavLink>
                     </li>
                     <li>
-                        <NavLink activeClassName="active_menu" to="/Example3">Sample3</NavLink>
+                        <NavLink exact activeClassName="active_menu" to="/Example3">Sample3</NavLink>
                     </li>
                 </ul>
             </div>
