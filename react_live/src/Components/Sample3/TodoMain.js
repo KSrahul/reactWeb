@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import {} from './Todo.css'
 import TodoItems from './TodoItems'
+import EditTodo from './EditTodo';
 
 const getTodoFromLS = () =>{
     const todoLS = localStorage.getItem("allTodoData");
@@ -69,7 +70,6 @@ const TodoMain = () => {
     const editTodoItems = (editObj) => {
         setEditText(editObj.listName);
         setEditItemObj(editObj);
-        console.log(inputFocus)
     }
 
     const newEditValue = (event) => {
@@ -78,23 +78,27 @@ const TodoMain = () => {
         }
     }
 
-    const saveEditValue = () => {
-        const editedData = toDoObject.filter((editedData) => {
+    const saveEditValues = () => {
+        const editedTodoData = toDoObject.filter((editedData) => {
             if (editedData.id === editItemObj.id) {                
                 editedData.listName = editeTextField;
             }
             return editedData;
         })
-        setToDoObject(editedData);
+        setToDoObject(editedTodoData);
         setEditText("");
     }
 
-    const textareaEnter = (event) => {
+    const textareaEnterPress = (event) => {
         if (event.key === "Enter") {
-            saveEditValue();
+            saveEditValues();
         }
     }
 
+    const closeEditModal = () =>{
+        setEditText("");
+        setEditItemObj("");
+    }
     localStorage.setItem("allTodoData", JSON.stringify(toDoObject));
 
     useEffect(() => {
@@ -107,16 +111,14 @@ const TodoMain = () => {
                 <div className="todo_text">Add Your Todo List</div>
                 {
                     editeTextField.length > 0 ?
-                        <div className="quick_edit">
-                            <div className="cross_sign pointer" onClick={() => setEditText("")}>
-                                Close
-                            </div>
-                            <div className="text_save pointer">
-                                <textarea onChange={newEditValue} onKeyDown={textareaEnter} value={editeTextField} ref={inputFocus}></textarea>
-                                <div className="save_btn" onClick={() => saveEditValue(toDoObject)}>Save</div>
-                            </div>
-                        </div>
-                    : false
+                        <EditTodo
+                            removeEditText={closeEditModal}
+                            editTodoValue={newEditValue}
+                            textareaEnter={textareaEnterPress}
+                            editeTodoField={editeTextField}
+                            saveEditValue={saveEditValues}>
+                        </EditTodo>
+                    :false
                 }
                 <div className="input_add relative">
                     <input 
