@@ -14,12 +14,12 @@ const getTodoFromLS = () =>{
 const TodoMain = () => {
     const inputFocus = useRef([]);
     const [inputValue, setInputValue] = useState("");
-    const [toDoObject, setToDoObject] = useState(getTodoFromLS());
+    const [toDoDataObject, setToDoObject] = useState(getTodoFromLS());
     const [editeTextField, setEditText] = useState("");
     const [editItemObj, setEditItemObj] = useState("");
     const todoDataObj = () =>{
         setToDoObject(
-            [...toDoObject,
+            [...toDoDataObject,
                 {
                     id : new Date().getTime().toString(),
                     listName : inputValue,
@@ -48,14 +48,14 @@ const TodoMain = () => {
     }
 
     const removeSelectedItems = (targetTodoItem) => {
-        const restTodoData = toDoObject.filter((todoNew) =>{
+        const restTodoData = toDoDataObject.filter((todoNew) =>{
             return todoNew.id !== targetTodoItem;
         })
         setToDoObject(restTodoData);
     }
 
     const markAsDone = (itemObj) => {
-        const markedReadData = toDoObject.filter((markedRead) => {
+        const markedReadData = toDoDataObject.filter((markedRead) => {
             if(markedRead.id === itemObj.id){
                 markedRead.isDone === false ? 
                 markedRead.isDone = true : 
@@ -79,7 +79,7 @@ const TodoMain = () => {
     }
 
     const saveEditValues = () => {
-        const editedTodoData = toDoObject.filter((editedData) => {
+        const editedTodoData = toDoDataObject.filter((editedData) => {
             if (editedData.id === editItemObj.id) {                
                 editedData.listName = editeTextField;
             }
@@ -99,7 +99,8 @@ const TodoMain = () => {
         setEditText("");
         setEditItemObj("");
     }
-    localStorage.setItem("allTodoData", JSON.stringify(toDoObject));
+
+    localStorage.setItem("allTodoData", JSON.stringify(toDoDataObject));
 
     useEffect(() => {
         inputFocus.current.focus();
@@ -136,10 +137,10 @@ const TodoMain = () => {
                     </div>
                 </div>
                 {
-                    toDoObject.length > 0 ? 
+                    toDoDataObject.length > 0 ? 
                         <div className="all_todo">
                             <TodoItems 
-                                allTodoList={toDoObject}
+                                allTodoList={toDoDataObject}
                                 removeItems={removeSelectedItems}
                                 markRead={markAsDone}
                                 editItems={editTodoItems}>
