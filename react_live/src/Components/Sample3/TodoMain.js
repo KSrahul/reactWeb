@@ -11,10 +11,11 @@ const getTodoFromLS = () =>{
     }
 }
 const TodoMain = () => {
-    const inputFocus = useRef(null);
+    const inputFocus = useRef([]);
     const [inputValue, setInputValue] = useState("");
     const [toDoObject, setToDoObject] = useState(getTodoFromLS());
-    const [getEditText, setEditText] = useState("");
+    const [editeTextField, setEditText] = useState("");
+    const [editItemObj, setEditItemObj] = useState("");
     const todoDataObj = () =>{
         setToDoObject(
             [...toDoObject,
@@ -66,27 +67,57 @@ const TodoMain = () => {
     }
 
     const editTodoItems = (editObj) => {
-        const editField = prompt("Edit", editObj.listName);
-        if(editField !== null){
-            const editedData = toDoObject.filter((edited) => {
-                if(edited.id === editObj.id){
-                    editObj.listName = editField;
-                }
-                return edited;
-            })
-            setToDoObject(editedData);
+        setEditText(editObj.listName);
+        setEditItemObj(editObj);
+        console.log(inputFocus)
+    }
+
+    const newEditValue = (event) => {
+        if (event.target.value || event.key === "Enter") {
+            setEditText(event.target.value)
+        }
+    }
+
+    const saveEditValue = () => {
+        const editedData = toDoObject.filter((editedData) => {
+            if (editedData.id === editItemObj.id) {                
+                editedData.listName = editeTextField;
+            }
+            return editedData;
+        })
+        setToDoObject(editedData);
+        setEditText("");
+    }
+
+    const textareaEnter = (event) => {
+        if (event.key === "Enter") {
+            saveEditValue();
         }
     }
 
     localStorage.setItem("allTodoData", JSON.stringify(toDoObject));
-    
+
     useEffect(() => {
         inputFocus.current.focus();
     }, [])
+
       return(
           <>
             <div className="todo_main">
                 <div className="todo_text">Add Your Todo List</div>
+                {
+                    editeTextField.length > 0 ?
+                        <div className="quick_edit">
+                            <div className="cross_sign pointer" onClick={() => setEditText("")}>
+                                Close
+                            </div>
+                            <div className="text_save pointer">
+                                <textarea onChange={newEditValue} onKeyDown={textareaEnter} value={editeTextField} ref={inputFocus}></textarea>
+                                <div className="save_btn" onClick={() => saveEditValue(toDoObject)}>Save</div>
+                            </div>
+                        </div>
+                    : false
+                }
                 <div className="input_add relative">
                     <input 
                         onChange={inputType}

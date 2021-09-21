@@ -89,6 +89,43 @@
 }
 .marked_done .edit_icon{pointer-events: none;}
 .marked_done .edit_icon > svg{fill: #d8d5d5;}
+.quick_edit{
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background: #0009;
+}
+.text_save {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.cross_sign{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+}
+.text_save > textarea {
+    resize: none;
+    padding: 10px 5px;
+    height: 60px;
+    width: 200px;
+    border-radius: 6px;
+    outline: none;
+}
+.save_btn {
+    width: max-content;
+    background-color: #026aa7;
+    padding: 8px 18px;
+    position: relative;
+    left: 4px;
+    top: 4px;
+    border-radius: 4px;
+}
 .clear_items {
     width: max-content;
     margin: auto;

@@ -5,9 +5,7 @@ const TodoItems = (props) => {
                 props.allTodoList.map((todoListObj) =>{
                     return(
                         <div className={`flex added_items ${todoListObj.isDone === true ? 'marked_done' : ''}`} key={todoListObj.id}>
-                            <div className="task_name" contentEditable={props.contendEdit} suppressContentEditableWarning={true}>
-                                {todoListObj.listName}
-                            </div>
+                            <div className="task_name">{todoListObj.listName}</div>
                             <div className="flex right_icons">
                                 <div className="flex pointer edit_icon" onClick={() => props.editItems(todoListObj)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
