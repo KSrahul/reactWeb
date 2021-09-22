@@ -3,12 +3,12 @@ import Menu from './Components/Header/Menu';
 import FilterMain from './Components/Sample1/FilterMain'
 import Example2 from './Components/Sample2/SearchMain';
 import Example3 from './Components/Sample3/TodoMain'
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
     <>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <Menu></Menu>
         <div className="main_container">
           <Switch>
@@ -17,7 +17,7 @@ function App() {
               <Route exact path='/Example3' component={Example3}></Route>
           </Switch>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
