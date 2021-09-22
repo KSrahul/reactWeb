@@ -131,9 +131,12 @@ const TodoMain = () => {
                             </TodoItems>
                             
                             <div className="clear_items pointer" 
-                                onClick={
-                                    () => setToDoObject([])
-                                }>
+                                onClick={() => {
+                                    const confirmRemove = window.confirm("Are You Sure?");
+                                    if(confirmRemove){
+                                        setToDoObject([]);
+                                    }
+                                }}>
                                 Clear Items
                             </div>
                         </div>
@@ -149,6 +152,11 @@ const TodoMain = () => {
                             editeTodoField={editeTextField}
                             saveEditValue={saveEditData}>
                         </EditTodo>
+                    :false
+                }
+                {
+                    toDoDataObject.length > 0 ?
+                        <div className="pending_task">You Have {toDoDataObject.length} Pending Task</div>
                     :false
                 }
             </div>

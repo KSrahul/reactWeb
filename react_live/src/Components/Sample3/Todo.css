@@ -131,6 +131,12 @@
     border-radius: 6px;
     margin-top: 30px;
 }
+.pending_task {
+    text-align: center;
+    padding-top: 28px;
+    color: red;
+    font-size: 20px;
+}
 
 @media (max-width: 750px){
     .todo_main{width: calc(100% - 56px);}
