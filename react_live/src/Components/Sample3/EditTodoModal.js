@@ -1,4 +1,11 @@
+import { useRef, useEffect } from "react"
+
 const EditTodoModal = (props) => {
+    const textAraFocus = useRef(null)
+
+    useEffect(() => {
+        textAraFocus.current.select();
+    }, [])
     return (
         <>
             <div className="quick_edit">
@@ -8,7 +15,7 @@ const EditTodoModal = (props) => {
                     </svg>
                 </div>
                 <div className="text_save pointer">
-                    <textarea onChange={props.editTodoValue} onKeyDown={props.textareaEnter} value={props.editeTodoField}></textarea>
+                    <textarea onChange={props.editTodoValue} onKeyDown={props.textareaEnter} value={props.editeTodoField} ref={textAraFocus}></textarea>
                     <div className="save_btn" onClick={props.saveEditValue}>Save</div>
                 </div>
             </div>
