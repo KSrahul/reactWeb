@@ -19,6 +19,9 @@ const Menu = () => {
                     <li>
                         <NavLink exact activeClassName="active_menu" to="/Example3">Sample3</NavLink>
                     </li>
+                    {/* <li>
+                        <NavLink exact activeClassName="active_menu" to="/Example4">Sample4</NavLink>
+                    </li> */}
                 </ul>
             </div>
         </>
