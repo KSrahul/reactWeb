@@ -15,7 +15,7 @@ const EditTodoModal = (props) => {
                     </svg>
                 </div>
                 <div className="text_save pointer">
-                    <textarea onChange={props.editTodoValue} onKeyDown={props.textareaEnter} value={props.editeTodoField} ref={textAraFocus}></textarea>
+                    <textarea onChange={props.editTodoValue} onKeyDown={props.textareaEnter} ref={textAraFocus} defaultValue={props.editeTodoField}></textarea>
                     <div className="save_btn" onClick={props.saveEditValue}>Save</div>
                 </div>
             </div>
