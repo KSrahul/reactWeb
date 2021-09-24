@@ -74,8 +74,8 @@ const TodoMain = () => {
     }
 
     const newEditValue = (event) => {
-        if (event.target.value || event.key === "Enter") {
-            setEditText(event.target.value)
+        if (event.target.value.length > 0) {
+            setEditText(event.target.value);
         }
     }
 
