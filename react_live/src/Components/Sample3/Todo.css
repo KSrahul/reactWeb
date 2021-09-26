@@ -22,13 +22,13 @@
     outline: none;
     color: white;
     padding: 0px 0px 6px 0px;
-    font-size: 14px;
+    font-size: 16px;
 }
 .input_add > input::placeholder{
     color: white;
 }
 .add_btn {
-    background-color: #bf6e6e;
+    background-color: #a77676;
     font-size: 31px;
     width: 40px;
     height: 40px;
@@ -39,6 +39,9 @@
     position: absolute;
     top: calc(0px - 18px);
     right: 0;
+}
+.active_cta{
+    background-color: #e86969;
 }
 
 .added_items{

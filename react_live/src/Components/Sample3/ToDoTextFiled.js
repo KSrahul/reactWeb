@@ -11,7 +11,7 @@ function ToDoTextFiled(props) {
                 type="text" 
                 placeholder="Add New Task" />
 
-            <div className="add_btn pointer" 
+            <div className={`add_btn pointer ${props.inputValue.length > 0 ? "active_cta" : ""}`}
                 onClick={props.addItems}>
                 +
             </div>
