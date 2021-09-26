@@ -54,7 +54,7 @@
     order: reverse;
 }
 .all_todo {
-    margin-top: 12px;
+    margin-top: 22px;
     max-height: 400px;
     overflow-y: auto;
 }
