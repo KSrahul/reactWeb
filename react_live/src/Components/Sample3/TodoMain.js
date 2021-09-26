@@ -20,13 +20,14 @@ const TodoMain = () => {
     const [editItemObj, setEditItemObj] = useState("");
     const todoDataObj = () =>{
         setToDoObject(
-            [...toDoDataObject,
+            [
                 {
                     id : new Date().getTime().toString(),
                     listName : inputValue,
                     isDone : false,
                     isRemove : false,
-                }
+                },
+                ...toDoDataObject
             ]
         )
     }
