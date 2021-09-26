@@ -129,16 +129,6 @@ const TodoMain = () => {
                                 markRead={markAsDone}
                                 editItems={editTodoItems}>
                             </TodoItems>
-                            
-                            <div className="clear_items pointer" 
-                                onClick={() => {
-                                    const confirmRemove = window.confirm("Are You Sure?");
-                                    if(confirmRemove){
-                                        setToDoObject([]);
-                                    }
-                                }}>
-                                Clear Items
-                            </div>
                         </div>
                     :false
                 }
@@ -156,7 +146,18 @@ const TodoMain = () => {
                 }
                 {
                     toDoDataObject.length > 0 ?
-                        <div className="pending_task">You Have {toDoDataObject.length} Pending Task</div>
+                        <div className="cta_action flex">
+                            <div className="pending_task">You Have {toDoDataObject.length} Pending Task</div>
+                            <div className="clear_items pointer" 
+                                onClick={() => {
+                                    const confirmRemove = window.confirm("Are You Sure?");
+                                    if(confirmRemove){
+                                        setToDoObject([]);
+                                    }
+                                }}>
+                                Clear Items
+                            </div>
+                        </div>
                     :false
                 }
             </div>

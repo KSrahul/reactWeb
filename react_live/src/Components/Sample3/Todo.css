@@ -48,6 +48,7 @@
     margin-bottom: 12px;
     padding: 12px 10px;
     align-items: center;
+    order: reverse;
 }
 .all_todo {
     margin-top: 12px;
@@ -125,19 +126,26 @@
 }
 .clear_items {
     width: max-content;
-    margin: auto;
+    /* margin: auto; */
     background-color: red;
     padding: 10px 10px;
     border-radius: 6px;
-    margin-top: 30px;
+    /* /* margin-top: 30px; */
 }
+
 .pending_task {
     text-align: center;
-    padding-top: 28px;
+    /* padding-top: 28px; */
     color: red;
     font-size: 20px;
+}
+.cta_action{
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
 }
 
 @media (max-width: 750px){
     .todo_main{width: calc(100% - 40px);padding: 10px 10px;}
+    .pending_task{font-size: 16px;}
 }

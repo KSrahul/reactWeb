@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import BoxData from './BoxData.json'
 import {} from './Box.css'
 
 function BoxItems() {
-    const [boxClass, setBoxClass] = useState(0);
+    const [isSelected, setSelected] = useState("");
     const boxClick = (event) => {
-        setBoxClass(event.id);
+        setSelected(isSelected === event ? false : event);
     }
     
     return (
@@ -13,7 +13,13 @@ function BoxItems() {
             {  
                 BoxData.map((boxItem, boxId) =>{
                     return(
-                        <div className={`boxes pointer ${boxClass === boxId ? 'active_box' : ''}`} key={boxId} onClick={() => boxClick(boxItem)}>{boxItem.title}</div>
+                        <div className="accor_main" key={boxId}>
+                            
+                            <div className={`pointer`} onClick={() => boxClick(boxId)}>{boxItem.title}</div>
+
+                            <div className={`accod_content ${isSelected === boxId ? "show_content" : ""}`}>{boxItem.content}</div>
+                            
+                        </div>
                     )
                 })
             }
