@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {} from '../Sample2/Search.css'
+import {} from '../SearchPage/Search.css'
 import JsonSearchData from './SearchData.json'
 import SearchItems from './SearchItems'
 import InputSearchView from './InputSearchView'
