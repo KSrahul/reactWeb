@@ -5,7 +5,7 @@ import {NavLink} from 'react-router-dom'
 const Menu = () => {
     return (
         <>
-            {/* <div className="flex header_main">
+            <div className="flex header_main">
                 <div>
                     <img src={logo} width="100" alt="logo" />
                 </div>
@@ -19,11 +19,11 @@ const Menu = () => {
                     <li>
                         <NavLink exact activeClassName="active_menu" to="/TodoPage">Sample3</NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink exact activeClassName="active_menu" to="/Example4">Sample4</NavLink>
-                    </li>
+                    </li> */}
                 </ul>
-            </div> */}
+            </div>
         </>
     )
 }
