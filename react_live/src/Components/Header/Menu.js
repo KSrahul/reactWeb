@@ -20,9 +20,9 @@ const Menu = () => {
                     .main_container{margin-top: 90px;color: black;}
                     .logo_cen{text-align: center;padding-top: 10px;}
                     .hamburger_icon{margin-right: 20px;}
-                    .ham_menus_list{position: fixed;top: 0;width: 100%;left: 0;height: 100%;background-color: #cccccc;transform: translateY(-100%);}
+                    .ham_menus_list{position: fixed;top: 0;width: 100%;left: 0;height: 100%;background-color: #cccccc;transform: translateY(-100%);z-index: 9;}
                     .show_ham_menus{transform: translateY(0%);transition: 0.4s;}
-                    .hamburger_icon{z-index: 1;}
+                    .hamburger_icon{z-index: 10;}
                     .ham_cross > svg{fill: red;}
                     .hamburger_icon > svg > path{transition: 0.4s;}
                     .ham_cross > svg > #hamone{transform: rotate(21deg) translateY(0px) translateX(16px);}
