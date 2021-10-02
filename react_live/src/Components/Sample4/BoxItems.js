@@ -15,8 +15,8 @@ function BoxItems() {
             {  
                 BoxData.map((boxItem, boxId) =>{
                     return(
-                        <div className={`accor_main pointer`} onClick={() => boxClick(boxId)} key={boxId}>
-                            <div className={`flex`}>
+                        <div className={`accor_main`} key={boxId}>
+                            <div className={`flex pointer`} onClick={() => boxClick(boxId)}>
                                 <div className={``}>{boxItem.title}</div>
                                 <div className={`acoor_icon ${isSelected === boxId ? "rotate_aero" : ""}`}>
                                     +

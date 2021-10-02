@@ -10,7 +10,7 @@
     border-radius: 9px;
 }
 .boxes_main {
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     width: 80%;
     margin: auto;
@@ -22,7 +22,7 @@
     margin-bottom: 20px;
     width: 100%;
     background-color: #FFF;
-    padding: 20px;
+    /* padding: 20px; */
     margin: 0 auto 15px auto;
     border: 1px solid #eee;
     border-radius: 5px;
@@ -31,6 +31,7 @@
 .accor_main > .flex{
     justify-content: space-between;
     font-size: 20px;
+    padding: 20px 12px;
 }
 .active_box {
     background-color: red;
@@ -40,7 +41,7 @@
     /* overflow: hidden; */
     display: none;
     transition: 0.4s;
-    padding-top: 24px;
+    padding: 0px 20px 20px 20px;
 }
 .show_content{
     /* height: 40px; */
