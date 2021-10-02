@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import {} from '../SearchPage/Search.css'
 import JsonSearchData from './SearchData.json'
 import SearchItems from './SearchItems'
 import InputSearchView from './InputSearchView'
 const SearchMain = () => {
+    const searchFocus = useRef(null)
     const [filterSearchData, setSearchDataFun] = useState([]);
     const [wordEnter, wordEnterFun] = useState("");
     const InputValueChange = (valInput) => {
@@ -24,6 +25,10 @@ const SearchMain = () => {
         wordEnterFun(hoverVal);
     }
 
+    useEffect(() => {
+        searchFocus.current.focus();
+    }, [])
+
     return(
         <div className="search_main">
             <div className="indian_sta">Type.. any state name of India.</div>
@@ -32,7 +37,8 @@ const SearchMain = () => {
                 <InputSearchView 
                     InputValChange={InputValueChange}
                     removeInputVal={removeInputVal}
-                    inputSetValue={wordEnter}>
+                    inputSetValue={wordEnter}
+                    searchFocus={searchFocus}>
                  </InputSearchView>
 
                 <SearchItems 
