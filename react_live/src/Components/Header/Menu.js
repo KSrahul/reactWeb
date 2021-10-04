@@ -20,7 +20,7 @@ const Menu = () => {
                     .main_container{margin-top: 90px;color: black;}
                     .logo_cen{text-align: center;padding-top: 10px;}
                     .hamburger_icon{margin-right: 20px;}
-                    .ham_menus_list{position: fixed;top: 0;width: 100%;left: 0;height: 100%;background-color: #cccccc;transform: translateY(-100%);z-index: 9;}
+                    .ham_menus_list{position: fixed;top: 0;width: 100%;left: 0;height: 100%;background-color: white;transform: translateY(-100%);z-index: 9;}
                     .show_ham_menus{transform: translateY(0%);transition: 0.4s;}
                     .hamburger_icon{z-index: 10;}
                     .ham_cross > svg{fill: red;}
