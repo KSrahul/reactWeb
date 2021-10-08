@@ -41,19 +41,12 @@ const TodoMain = () => {
         )
     }
 
-    const updateStates = (inputVal, editVal, editObj, findTopPosition) => {
-        setAllState(allKeys => ({
-            ...allKeys,
-            inputValue : inputVal,
-            editeTextField : editVal,
-            editItemObj : editObj,
-            findTopPosition: findTopPosition
-        }))
-    }
-
     const inputOnType = (event) => {
         const currentVal = event.target.value;
-        updateStates(currentVal, "", "", "");
+            setAllState(allKeys => ({
+            ...allKeys,
+            inputValue : currentVal,
+        }))
     }
 
     const addItemBtn = () => {
@@ -92,12 +85,21 @@ const TodoMain = () => {
 
     const editTodoItems = (editObj, targetElement) => {
         const editPosition = targetElement.currentTarget.getBoundingClientRect();
-        updateStates("", editObj.listName, editObj, editPosition.top);
+        setAllState(allKeys => ({
+            ...allKeys,
+            editeTextField : editObj.listName,
+            editItemObj : editObj,
+            findTopPosition: editPosition.top
+        }))
     }
 
     const newEditValue = (event) => {
         if (event.target.value.length > 0) {
-            updateStates("", event.target.value, allState.editItemObj, "");
+            setAllState(allKeys => ({
+                ...allKeys,
+                editeTextField : event.target.value,
+                editItemObj : allState.editItemObj,
+            }))
         }
     }
 
@@ -119,7 +121,10 @@ const TodoMain = () => {
     }
 
     const closeEditModal = () =>{
-        updateStates("", "", "", "");
+        setAllState(allKeys => ({
+            ...allKeys,
+            editeTextField : "",
+        }))
     }
 
     localStorage.setItem("allTodoData", JSON.stringify(toDoDataObject));
