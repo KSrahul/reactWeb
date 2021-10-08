@@ -89,8 +89,9 @@ const TodoMain = () => {
     }
 
     const editTodoItems = (editObj, targetElement) => {
-        // // console.log(targetElement.currentTarget.getBoundingClientRect().top)
         updateStates("", editObj.listName, editObj);
+        const editPosition = targetElement.currentTarget.getBoundingClientRect();
+        console.log(editPosition)
     }
 
     const newEditValue = (event) => {
