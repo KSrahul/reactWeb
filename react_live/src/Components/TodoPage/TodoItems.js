@@ -2,12 +2,12 @@ const TodoItems = (props) => {
     return(
         <>
             {
-                props.allTodoList.map((todoListObj) =>{
+                props.allTodoList.map((todoListObj, i) =>{
                     return(
                         <div className={`flex added_items ${todoListObj.isDone === true ? 'marked_done' : ''}`} key={todoListObj.id}>
                             <div className="task_name">{todoListObj.listName}</div>
                             <div className="flex right_icons">
-                                <div className="flex pointer edit_icon" onClick={() => props.editItems(todoListObj)}>
+                                <div className="flex pointer edit_icon" onClick={(targetElement) => props.editItems(todoListObj, targetElement)}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white">
                                         <path d="M1.438 16.872l-1.438 7.128 7.127-1.438 12.642-12.64-5.69-5.69-12.641 12.64zm2.271 2.253l-.85-.849 11.141-11.125.849.849-11.14 11.125zm20.291-13.436l-2.817 2.819-5.69-5.691 2.816-2.817 5.691 5.689z" />
                                     </svg>

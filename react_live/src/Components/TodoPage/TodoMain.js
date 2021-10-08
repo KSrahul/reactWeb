@@ -13,17 +13,25 @@ const getTodoFromLS = () =>{
     }
 }
 const TodoMain = () => {
-    const inputFocus = useRef([]);
-    const [inputValue, setInputValue] = useState("");
+    const inputFocus = useRef(false);
     const [toDoDataObject, setToDoObject] = useState(getTodoFromLS());
-    const [editeTextField, setEditText] = useState("");
-    const [editItemObj, setEditItemObj] = useState("");
+    // const [inputValue, setInputValue] = useState("");
+    // const [editeTextField, setEditText] = useState("");
+    // const [editItemObj, setEditItemObj] = useState("");
+    const [allState, setAllState] = useState(
+        {
+            inputValue: "",
+            editeTextField: "",
+            editItemObj: "",
+        }
+    )
+
     const todoDataObj = () =>{
         setToDoObject(
             [
                 {
                     id : new Date().getTime().toString(),
-                    listName : inputValue,
+                    listName : allState.inputValue,
                     isDone : false,
                     isRemove : false,
                 },
@@ -31,21 +39,32 @@ const TodoMain = () => {
             ]
         )
     }
+
+    const updateStates = (inputVal, editVal, editObj) => {
+        setAllState(allKeys => ({
+            ...allKeys,
+            inputValue : inputVal,
+            editeTextField : editVal,
+            editItemObj : editObj
+        }))
+    }
+
     const inputOnType = (event) => {
-        setInputValue(event.target.value);
+        const currentVal = event.target.value;
+        updateStates(currentVal, "", "");
     }
 
     const addItemBtn = () => {
-        if(inputValue.length > 0){
-            setInputValue("");
+        if(allState.inputValue.length > 0){
             todoDataObj();
+            allState.inputValue = "";
         }
     }
 
     const keyTypeCheck = (event) => {
-        if(event.key === "Enter" && inputValue.length > 0){
-            setInputValue("");
+        if(event.key === "Enter" && allState.inputValue.length > 0){
             todoDataObj();
+            allState.inputValue = "";
         }
     }
 
@@ -69,26 +88,26 @@ const TodoMain = () => {
         setToDoObject(markedReadData);
     }
 
-    const editTodoItems = (editObj) => {
-        setEditText(editObj.listName);
-        setEditItemObj(editObj);
+    const editTodoItems = (editObj, targetElement) => {
+        // // console.log(targetElement.currentTarget.getBoundingClientRect().top)
+        updateStates("", editObj.listName, editObj);
     }
 
     const newEditValue = (event) => {
         if (event.target.value.length > 0) {
-            setEditText(event.target.value);
+            updateStates("", event.target.value, allState.editItemObj);
         }
     }
 
     const saveEditData = () => {
         const editedTodoData = toDoDataObject.filter((editedData) => {
-            if (editedData.id === editItemObj.id) {                
-                editedData.listName = editeTextField;
+            if (editedData.id === allState.editItemObj.id) {
+                editedData.listName = allState.editeTextField;
             }
             return editedData;
         })
         setToDoObject(editedTodoData);
-        setEditText("");
+        allState.editeTextField = "";
     }
 
     const textareaEnterPress = (event) => {
@@ -98,8 +117,7 @@ const TodoMain = () => {
     }
 
     const closeEditModal = () =>{
-        setEditText("");
-        setEditItemObj("");
+        updateStates("", "", "");
     }
 
     localStorage.setItem("allTodoData", JSON.stringify(toDoDataObject));
@@ -115,7 +133,7 @@ const TodoMain = () => {
                 
                 <ToDoTextFiled
                     inputType={inputOnType}
-                    inputValue={inputValue}
+                    textAreaVal={allState.inputValue}
                     keyCheck={keyTypeCheck}
                     inputFocus={inputFocus}
                     addItems={addItemBtn}>
@@ -135,12 +153,12 @@ const TodoMain = () => {
                 }
 
                 {
-                    editeTextField.length > 0 ?
+                    allState.editeTextField.length > 0 ?
                         <EditTodo
                             removeEditText={closeEditModal}
                             editTodoValue={newEditValue}
                             textareaEnter={textareaEnterPress}
-                            editeTodoField={editeTextField}
+                            editeTodoField={allState.editeTextField}
                             saveEditValue={saveEditData}>
                         </EditTodo>
                     :false
@@ -148,7 +166,9 @@ const TodoMain = () => {
                 {
                     toDoDataObject.length > 0 ?
                         <div className="cta_action flex">
-                            <div className="pending_task">You Have {toDoDataObject.length} Pending Task</div>
+                            <div className="pending_task">
+                                You Have {toDoDataObject.length} Pending Task
+                            </div>
                             <div className="clear_items pointer" 
                                 onClick={() => {
                                     const confirmRemove = window.confirm("Are You Sure?");
