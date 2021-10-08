@@ -23,6 +23,7 @@ const TodoMain = () => {
             inputValue: "",
             editeTextField: "",
             editItemObj: "",
+            findTopPosition : ""
         }
     )
 
@@ -40,18 +41,19 @@ const TodoMain = () => {
         )
     }
 
-    const updateStates = (inputVal, editVal, editObj) => {
+    const updateStates = (inputVal, editVal, editObj, findTopPosition) => {
         setAllState(allKeys => ({
             ...allKeys,
             inputValue : inputVal,
             editeTextField : editVal,
-            editItemObj : editObj
+            editItemObj : editObj,
+            findTopPosition: findTopPosition
         }))
     }
 
     const inputOnType = (event) => {
         const currentVal = event.target.value;
-        updateStates(currentVal, "", "");
+        updateStates(currentVal, "", "", "");
     }
 
     const addItemBtn = () => {
@@ -89,14 +91,13 @@ const TodoMain = () => {
     }
 
     const editTodoItems = (editObj, targetElement) => {
-        updateStates("", editObj.listName, editObj);
         const editPosition = targetElement.currentTarget.getBoundingClientRect();
-        console.log(editPosition)
+        updateStates("", editObj.listName, editObj, editPosition.top);
     }
 
     const newEditValue = (event) => {
         if (event.target.value.length > 0) {
-            updateStates("", event.target.value, allState.editItemObj);
+            updateStates("", event.target.value, allState.editItemObj, "");
         }
     }
 
@@ -118,7 +119,7 @@ const TodoMain = () => {
     }
 
     const closeEditModal = () =>{
-        updateStates("", "", "");
+        updateStates("", "", "", "");
     }
 
     localStorage.setItem("allTodoData", JSON.stringify(toDoDataObject));
@@ -160,7 +161,8 @@ const TodoMain = () => {
                             editTodoValue={newEditValue}
                             textareaEnter={textareaEnterPress}
                             editeTodoField={allState.editeTextField}
-                            saveEditValue={saveEditData}>
+                            saveEditValue={saveEditData}
+                            topPosition={allState.findTopPosition}>
                         </EditTodo>
                     :false
                 }
