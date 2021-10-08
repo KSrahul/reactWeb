@@ -54,7 +54,15 @@ const Menu = () => {
                                 onClick={menuClick}
                                 activeClassName="active_menu"
                                 to="/">
-                                Filter Items
+                                Todo App
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink exact
+                                onClick={menuClick}
+                                activeClassName="active_menu"
+                                to="/TabsMain">
+                                Custom Tabs
                             </NavLink>
                         </li>
                         <li>
@@ -63,14 +71,6 @@ const Menu = () => {
                                 activeClassName="active_menu"
                                 to="/SearchPage">
                                 Search Items
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink exact
-                                onClick={menuClick}
-                                activeClassName="active_menu"
-                                to="/TodoPage">
-                                Todo App
                             </NavLink>
                         </li>
                         <li>

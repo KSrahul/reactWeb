@@ -13,9 +13,9 @@ function App() {
         <Menu></Menu>
         <div className="main_container">
           <Switch>
-              <Route exact path='/' component={TabsMain}></Route>
+              <Route exact path='/' component={Example3}></Route>
+              <Route exact path='/TabsMain' component={TabsMain}></Route>
               <Route exact path='/SearchPage' component={Example2}></Route>
-              <Route exact path='/TodoPage' component={Example3}></Route>
               <Route exact path='/Accordion' component={Example4}></Route>
           </Switch>
         </div>
