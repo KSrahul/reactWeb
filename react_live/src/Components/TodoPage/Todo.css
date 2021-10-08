@@ -55,8 +55,8 @@
 }
 .all_todo {
     margin-top: 22px;
-    max-height: 400px;
-    overflow-y: auto;
+    /* max-height: 400px; */
+    /* overflow-y: auto; */
 }
 .all_todo::-webkit-scrollbar{
     display: none;
@@ -146,6 +146,9 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 24px;
+    position: sticky;
+    bottom: 0px;
+    background-color: #56d1c5;
 }
 
 @media (max-width: 750px){
