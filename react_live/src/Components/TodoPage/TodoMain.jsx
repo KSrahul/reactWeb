@@ -41,6 +41,10 @@ const TodoMain = () => {
         )
     }
 
+    const itemsCount = toDoDataObject.filter((allItemsCount) =>{
+        return !allItemsCount.isDone;
+    })
+
     const inputOnType = (event) => {
         const currentVal = event.target.value;
             setAllState(allKeys => ({
@@ -175,7 +179,7 @@ const TodoMain = () => {
                     toDoDataObject.length > 0 ?
                         <div className="cta_action flex">
                             <div className="pending_task">
-                                You Have {toDoDataObject.length} Pending Task
+                                You Have {itemsCount.length} Pending Task
                             </div>
                             <div className="clear_items pointer" 
                                 onClick={() => {
