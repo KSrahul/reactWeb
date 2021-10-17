@@ -51,7 +51,15 @@
     margin-bottom: 12px;
     padding: 12px 10px;
     align-items: center;
-    order: reverse;
+    transition: 0.6s;
+    transform: translateX(0px);
+    animation: boxes 1s;
+}
+@keyframes boxes {
+    0% {
+        transform: translateX(-100px);
+        background-color: red;
+    }
 }
 .all_todo {
     margin-top: 22px;
@@ -193,6 +201,14 @@
     left: 50%;
     top: 42%;
     transition: transform 0.4s;
+}
+.no_todo {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #c73636;
 }
 .def_check:checked + .check::after {transform: translate(-50%, -50%)rotate(45deg);}
 .def_check:checked + .check::before {transform: scale(1);}

@@ -161,13 +161,8 @@ const TodoMain = () => {
                                 editItems={editTodoItems}>
                             </TodoItems>
                         </div>
-                    :false
-                    // <div className="no_items">
-                    //     <img src={noItems} alt=""/>
-                    //     <img src={noItems} alt=""/>
-                    //     <img src={noItems} alt=""/>
-                    //     <img src={noItems} alt=""/>
-                    // </div>
+                    :
+                    <div class="no_todo">Your todo will appear here</div>
                 }
 
                 {
