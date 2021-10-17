@@ -3,6 +3,7 @@ import {} from './Todo.css'
 import TodoItems from './TodoItems'
 import EditTodo from './EditTodoModal';
 import ToDoTextFiled from './ToDoTextFiled';
+import noItems from './Items_loader.png'
 
 const getTodoFromLS = () =>{
     const todoLS = localStorage.getItem("allTodoData");
@@ -153,7 +154,6 @@ const TodoMain = () => {
                 {
                     toDoDataObject.length > 0 ? 
                         <div className="all_todo">
-                            <img src="/items_loader.png" alt=""/>
                             <TodoItems 
                                 allTodoList={toDoDataObject}
                                 removeItems={removeSelectedItems}
@@ -162,6 +162,12 @@ const TodoMain = () => {
                             </TodoItems>
                         </div>
                     :false
+                    // <div className="no_items">
+                    //     <img src={noItems} alt=""/>
+                    //     <img src={noItems} alt=""/>
+                    //     <img src={noItems} alt=""/>
+                    //     <img src={noItems} alt=""/>
+                    // </div>
                 }
 
                 {
