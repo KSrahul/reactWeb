@@ -144,13 +144,14 @@
     padding: 10px 10px;
     border-radius: 6px;
     /* /* margin-top: 30px; */
+    font-size: 15px;
 }
 
 .pending_task {
     text-align: center;
     /* padding-top: 28px; */
     color: red;
-    font-size: 20px;
+    font-size: 18px;
 }
 .cta_action{
     align-items: center;
@@ -159,6 +160,7 @@
     position: sticky;
     bottom: 0px;
     background-color: #56d1c5;
+    padding: 8px 0px;
 }
 .edit_icon {
     margin-right: 15px;
@@ -210,6 +212,14 @@
     align-items: center;
     font-size: 18px;
     color: #c73636;
+}
+.tabs_todo {
+    color: #383434;
+    font-size: 15px;
+    padding: 4px 4px;
+}
+.active_tabs{
+    font-weight: bold;
 }
 .def_check:checked + .check::after {transform: translate(-50%, -50%)rotate(45deg);}
 .def_check:checked + .check::before {transform: scale(1);}

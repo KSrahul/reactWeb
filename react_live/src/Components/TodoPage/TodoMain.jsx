@@ -5,6 +5,7 @@ import EditTodo from './EditTodoModal';
 import ToDoTextFiled from './ToDoTextFiled';
 import noItems from './Items_loader.png'
 
+const arrayTabs = ["All", "Active", "Completed"];
 const getTodoFromLS = () =>{
     const todoLS = localStorage.getItem("allTodoData");
     if(todoLS){
@@ -21,10 +22,12 @@ const TodoMain = () => {
             inputValue: "",
             editeTextField: "",
             editItemObj: "",
-            findTopPosition : ""
+            findTopPosition : "",
+            classTabs: 0,
+            tabsActionData : []
         }
     )
-console.log(toDoDataObject)
+
     const todoDataObj = () =>{
         setToDoObject(
             [
@@ -45,7 +48,7 @@ console.log(toDoDataObject)
 
     const inputOnType = (event) => {
         const currentVal = event.target.value;
-            setAllState(allKeys => ({
+        setAllState(allKeys => ({
             ...allKeys,
             inputValue : currentVal,
         }))
@@ -131,6 +134,18 @@ console.log(toDoDataObject)
 
     localStorage.setItem("allTodoData", JSON.stringify(toDoDataObject));
 
+    const todoTabsFun = (name) =>{
+        const restTodoData = toDoDataObject.filter((todoNew) =>{
+            return !todoNew.isDone
+        })
+
+        setAllState(allKeys => ({
+            ...allKeys,
+            classTabs : name,
+            tabsActionData : restTodoData
+        }))
+
+    }
     useEffect(() => {
         inputFocus.current.focus();
     }, [])
@@ -180,6 +195,23 @@ console.log(toDoDataObject)
                             <div className="pending_task">
                                 {itemsCount.length} items left
                             </div>
+                            <div className="flex">
+                                {
+                                    arrayTabs.map((tabsName, index) =>{
+                                        return(
+                                            <div className=
+                                                {
+                                                    `tabs_todo pointer 
+                                                        ${allState.classTabs === index ? "active_tabs" : ""}
+                                                    `
+                                                }
+                                                onClick={() => todoTabsFun(index)}
+                                                key={index}>{tabsName}
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
                             <div className="clear_items pointer" 
                                 onClick={() => {
                                     const confirmRemove = window.confirm("Are You Sure?");
@@ -187,7 +219,7 @@ console.log(toDoDataObject)
                                         setToDoObject([]);
                                     }
                                 }}>
-                                Clear Items
+                                Clear All
                             </div>
                         </div>
                     :false
