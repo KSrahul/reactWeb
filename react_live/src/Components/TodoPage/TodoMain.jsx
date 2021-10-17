@@ -153,6 +153,7 @@ const TodoMain = () => {
                 {
                     toDoDataObject.length > 0 ? 
                         <div className="all_todo">
+                            <img src="/items_loader.png" alt=""/>
                             <TodoItems 
                                 allTodoList={toDoDataObject}
                                 removeItems={removeSelectedItems}
