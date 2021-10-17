@@ -81,6 +81,7 @@
 .task_name{
     outline: none;
     margin-left: 6px;
+    font-size: 15px;
 }
 .marked_done .task_name{    
     text-decoration: line-through;
@@ -169,10 +170,10 @@
     margin: 0;
     height: 100%;}
 .check {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     /* background-color: #d4d3d3; */
-    margin-right: 10px;
+    margin-right: 6px;
     border-radius: 50%;
     position: relative;
     pointer-events: none;
@@ -193,8 +194,8 @@
 .check::after {
     content: "";
     position: absolute;
-    width: 5px;
-    height: 10px;
+    width: 3px;
+    height: 8px;
     border: solid #ffffff;
     border-width: 0 2px 2px 0;
     transform: scale(0);
