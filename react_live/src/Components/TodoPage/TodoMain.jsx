@@ -179,7 +179,7 @@ const TodoMain = () => {
                     toDoDataObject.length > 0 ?
                         <div className="cta_action flex">
                             <div className="pending_task">
-                                You Have {itemsCount.length} Pending Task
+                                {itemsCount.length} items left
                             </div>
                             <div className="clear_items pointer" 
                                 onClick={() => {

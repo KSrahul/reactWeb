@@ -5,7 +5,7 @@ import SearchItems from './SearchItems'
 import InputSearchView from './InputSearchView'
 const SearchMain = () => {
     const searchFocus = useRef(null)
-    const [filterSearchData, setSearchDataFun] = useState([]);
+    const [filterSearchData, setSearchDataFun] = useState(JsonSearchData);
     const [wordEnter, wordEnterFun] = useState("");
     const InputValueChange = (valInput) => {
         const searchText = valInput.target.value.toLowerCase();
@@ -15,14 +15,17 @@ const SearchMain = () => {
             return findState.includes(searchText);
         });
         
-        searchText === "" ? setSearchDataFun([]) : setSearchDataFun(newSearchData);
+        // searchText === "" ? setSearchDataFun([]) : setSearchDataFun(newSearchData);
+        setSearchDataFun(newSearchData);
     }
     const removeInputVal = () => {
-        setSearchDataFun([]);
+        setSearchDataFun(JsonSearchData);
         wordEnterFun("");
+        searchFocus.current.focus();
     }
     const hoverText = (hoverVal) => {
         wordEnterFun(hoverVal);
+        searchFocus.current.focus();
     }
 
     useEffect(() => {
