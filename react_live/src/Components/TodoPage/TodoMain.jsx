@@ -4,7 +4,7 @@ import TodoItems from './TodoItems'
 import EditTodo from './EditTodoModal';
 import ToDoTextFiled from './ToDoTextFiled';
 
-const arrayTabs = ["All", "Completed", "Uncompleted"];
+const arrayTabs = ["All", "Active", "Completed"];
 const getTodoFromLS = () =>{
     const todoLS = localStorage.getItem("allTodoData");
     if(todoLS){
