@@ -3,9 +3,8 @@ import {} from './Todo.css'
 import TodoItems from './TodoItems'
 import EditTodo from './EditTodoModal';
 import ToDoTextFiled from './ToDoTextFiled';
-import noItems from './Items_loader.png'
 
-const arrayTabs = ["All", "Active", "Completed"];
+const arrayTabs = ["All", "Completed", "Uncompleted"];
 const getTodoFromLS = () =>{
     const todoLS = localStorage.getItem("allTodoData");
     if(todoLS){
@@ -144,6 +143,7 @@ const TodoMain = () => {
             classTabs : name,
             tabsActionData : restTodoData
         }))
+        console.log(restTodoData)
 
     }
     useEffect(() => {
