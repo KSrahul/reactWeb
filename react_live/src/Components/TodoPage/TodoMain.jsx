@@ -16,9 +16,6 @@ const getTodoFromLS = () =>{
 const TodoMain = () => {
     const inputFocus = useRef(false);
     const [toDoDataObject, setToDoObject] = useState(getTodoFromLS());
-    // const [inputValue, setInputValue] = useState("");
-    // const [editeTextField, setEditText] = useState("");
-    // const [editItemObj, setEditItemObj] = useState("");
     const [allState, setAllState] = useState(
         {
             inputValue: "",
@@ -27,7 +24,7 @@ const TodoMain = () => {
             findTopPosition : ""
         }
     )
-
+console.log(toDoDataObject)
     const todoDataObj = () =>{
         setToDoObject(
             [
@@ -162,7 +159,7 @@ const TodoMain = () => {
                             </TodoItems>
                         </div>
                     :
-                    <div class="no_todo">Your todo will appear here</div>
+                    <div className="no_todo">Your todo will appear here</div>
                 }
 
                 {
