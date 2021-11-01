@@ -1,5 +1,5 @@
 .todo_main {
-    width: 40%;
+    width: 46%;
     margin: 0px auto;
     background-color: #4fd1c5;
     color: white;
@@ -55,12 +55,12 @@
     transform: translateX(0px);
     animation: boxes 1s;
 }
-@keyframes boxes {
+/* @keyframes boxes {
     0% {
         transform: translateX(-100px);
         background-color: red;
     }
-}
+} */
 .all_todo {
     margin-top: 22px;
     /* max-height: 400px; */
@@ -217,17 +217,38 @@
 .tabs_todo {
     color: #383434;
     font-size: 15px;
-    padding: 4px 4px;
+    padding: 4px 0px;
+    margin-right: 18px;
 }
+span.item_count {
+    position: relative;
+    top: -5px;
+    color: white;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    text-align: center;
+    background-color: red;
+    border-radius: 50%;
+}
+.active_items_show .marked_done {display: none;}
+.complete_items_show .added_items{display: none;}
+.complete_items_show .marked_done{display: flex;}
 .active_tabs{
     font-weight: bold;
 }
 .def_check:checked + .check::after {transform: translate(-50%, -50%)rotate(45deg);}
 .def_check:checked + .check::before {transform: scale(1);}
+/* .complete_items_show .marked_done{display: none;}
+.active_items_show .added_items{display: none;}
+.all_todo .added_items, .active_items_show .marked_done{display: flex;} */
+.inner_items{width: 100%;justify-content: space-between;}
 @media (max-width: 750px){
     .todo_main{width: calc(100% - 40px);padding: 10px 10px;}
-    .pending_task{font-size: 16px;}
+    .pending_task{font-size: 16px;padding-bottom: 20px;}
     .eye_mark:hover .lin_eye{
         display: none;
     }
+    .cta_action{flex-direction: column;}
+    .cta_btns{padding-bottom: 20px;}
 }

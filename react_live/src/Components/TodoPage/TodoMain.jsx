@@ -10,7 +10,32 @@ const getTodoFromLS = () =>{
     if(todoLS){
         return JSON.parse(todoLS);
     }else{
-        return [];
+        return [
+            {
+                id : "1",
+                listName : "Task 1",
+                isDone : false,
+                isRemove : false,
+            },
+            {
+                id : "2",
+                listName : "Task 2",
+                isDone : false,
+                isRemove : false,
+            },
+            {
+                id : "3",
+                listName : "Task 3",
+                isDone : false,
+                isRemove : false,
+            },
+            {
+                id : "4",
+                listName : "Task 4",
+                isDone : true,
+                isRemove : false,
+            }
+        ];
     }
 }
 const TodoMain = () => {
@@ -23,7 +48,6 @@ const TodoMain = () => {
             editItemObj: "",
             findTopPosition : "",
             classTabs: 0,
-            tabsActionData : []
         }
     )
 
@@ -133,19 +157,30 @@ const TodoMain = () => {
 
     localStorage.setItem("allTodoData", JSON.stringify(toDoDataObject));
 
-    const todoTabsFun = (name) =>{
-        const restTodoData = toDoDataObject.filter((todoNew) =>{
-            return !todoNew.isDone
-        })
-
+    const todoTabsFun = (name, index) =>{
         setAllState(allKeys => ({
             ...allKeys,
-            classTabs : name,
-            tabsActionData : restTodoData
+            classTabs : index,
         }))
-        console.log(restTodoData)
-
     }
+
+    const startDraggingItems = (event) =>{
+        console.log(event)
+    }
+
+    const filterActiveCount = toDoDataObject.filter((filterActiveCount) => {
+        if(!filterActiveCount.isDone){
+            return filterActiveCount
+        }
+    })
+
+    const filterCompleteount = toDoDataObject.filter((filterCompleteount) => {
+        if(filterCompleteount.isDone){
+            return filterCompleteount
+        }
+    })
+
+
     useEffect(() => {
         inputFocus.current.focus();
     }, [])
@@ -165,16 +200,26 @@ const TodoMain = () => {
 
                 {
                     toDoDataObject.length > 0 ? 
-                        <div className="all_todo">
+                        <div className={`all_todo ${allState.classTabs === 0 ? '' : allState.classTabs === 1 ? 'active_items_show' : 'complete_items_show'}`}>
                             <TodoItems 
                                 allTodoList={toDoDataObject}
                                 removeItems={removeSelectedItems}
                                 markRead={markAsDone}
-                                editItems={editTodoItems}>
+                                editItems={editTodoItems}
+                                checkVisibility={allState.classTabs}
+                                startDragging={startDraggingItems}>
                             </TodoItems>
                         </div>
                     :
                     <div className="no_todo">Your todo will appear here</div>
+                }
+                
+                {
+                    allState.classTabs === 1 && filterActiveCount.length < 1 ? 
+                        <div className="no_todo">No Active Items!</div>
+                    : allState.classTabs === 2 && filterCompleteount.length < 1 ?
+                        <div className="no_todo">No Complete Items!</div>
+                    : false
                 }
 
                 {
@@ -189,8 +234,8 @@ const TodoMain = () => {
                         </EditTodo>
                     :false
                 }
-                {
-                    toDoDataObject.length > 0 ?
+                
+                
                         <div className="cta_action flex">
                             <div className="pending_task">
                                 {itemsCount.length} items left
@@ -201,12 +246,12 @@ const TodoMain = () => {
                                         return(
                                             <div className=
                                                 {
-                                                    `tabs_todo pointer 
+                                                    `tabs_todo pointer cta_btns 
                                                         ${allState.classTabs === index ? "active_tabs" : ""}
                                                     `
                                                 }
-                                                onClick={() => todoTabsFun(index)}
-                                                key={index}>{tabsName}
+                                                onClick={() => todoTabsFun(tabsName, index)}
+                                                key={index}>{tabsName} <span className="item_count" key={index}>{index === 0 ? toDoDataObject.length : index === 1 ? filterActiveCount.length : filterCompleteount.length} </span>
                                             </div>
                                         )
                                     })
@@ -222,8 +267,8 @@ const TodoMain = () => {
                                 Clear All
                             </div>
                         </div>
-                    :false
-                }
+
+                
             </div>
 
         </>
