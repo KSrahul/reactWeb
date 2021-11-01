@@ -51,6 +51,12 @@ const TodoMain = () => {
         }
     )
 
+    const activeAllTab = () =>{
+        setAllState(allKeys => ({
+            ...allKeys,
+            classTabs : 0,
+        }))
+    }
     const todoDataObj = () =>{
         setToDoObject(
             [
@@ -81,6 +87,7 @@ const TodoMain = () => {
         if(allState.inputValue.length > 0){
             todoDataObj();
             allState.inputValue = "";
+            activeAllTab();
         }
     }
 
@@ -88,6 +95,7 @@ const TodoMain = () => {
         if(event.key === "Enter" && allState.inputValue.length > 0){
             todoDataObj();
             allState.inputValue = "";
+            activeAllTab();
         }
     }
 
@@ -160,7 +168,7 @@ const TodoMain = () => {
     const todoTabsFun = (name, index) =>{
         setAllState(allKeys => ({
             ...allKeys,
-            classTabs : index,
+            classTabs : index
         }))
     }
 
@@ -210,15 +218,17 @@ const TodoMain = () => {
                                 startDragging={startDraggingItems}>
                             </TodoItems>
                         </div>
-                    :
-                    <div className="no_todo">Your todo will appear here</div>
+                    : false
                 }
                 
-                {
+                {   
+                    toDoDataObject.length < 1 ?
+                        <div className="no_todo">Your todo will appear here</div>
+                    :
                     allState.classTabs === 1 && filterActiveCount.length < 1 ? 
-                        <div className="no_todo">No Active Items!</div>
+                        <div className="no_todo no_height">No Active Items!</div>
                     : allState.classTabs === 2 && filterCompleteount.length < 1 ?
-                        <div className="no_todo">No Complete Items!</div>
+                        <div className="no_todo no_height">No Complete Items!</div>
                     : false
                 }
 
@@ -235,39 +245,37 @@ const TodoMain = () => {
                     :false
                 }
                 
-                
-                        <div className="cta_action flex">
-                            <div className="pending_task">
-                                {itemsCount.length} items left
-                            </div>
-                            <div className="flex">
-                                {
-                                    arrayTabs.map((tabsName, index) =>{
-                                        return(
-                                            <div className=
-                                                {
-                                                    `tabs_todo pointer cta_btns 
-                                                        ${allState.classTabs === index ? "active_tabs" : ""}
-                                                    `
-                                                }
-                                                onClick={() => todoTabsFun(tabsName, index)}
-                                                key={index}>{tabsName} <span className="item_count" key={index}>{index === 0 ? toDoDataObject.length : index === 1 ? filterActiveCount.length : filterCompleteount.length} </span>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                            <div className="clear_items pointer" 
-                                onClick={() => {
-                                    const confirmRemove = window.confirm("Are You Sure?");
-                                    if(confirmRemove){
-                                        setToDoObject([]);
-                                    }
-                                }}>
-                                Clear All
-                            </div>
-                        </div>
-
+                <div className="cta_action flex">
+                    <div className="pending_task">
+                        {itemsCount.length} items left
+                    </div>
+                    <div className="flex">
+                        {
+                            arrayTabs.map((tabsName, index) =>{
+                                return(
+                                    <div className=
+                                        {
+                                            `tabs_todo pointer cta_btns 
+                                                ${allState.classTabs === index ? "active_tabs" : ""}
+                                            `
+                                        }
+                                        onClick={() => todoTabsFun(tabsName, index)}
+                                        key={index}>{tabsName} <span className="item_count" key={index}>{index === 0 ? toDoDataObject.length : index === 1 ? filterActiveCount.length : filterCompleteount.length} </span>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className="clear_items pointer" 
+                        onClick={() => {
+                            const confirmRemove = window.confirm("Are You Sure?");
+                            if(confirmRemove){
+                                setToDoObject([]);
+                            }
+                        }}>
+                        Clear All
+                    </div>
+                </div>
                 
             </div>
 

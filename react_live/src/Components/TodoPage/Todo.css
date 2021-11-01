@@ -231,8 +231,7 @@ span.item_count {
     background-color: red;
     border-radius: 50%;
 }
-.active_items_show .marked_done {display: none;}
-.complete_items_show .added_items{display: none;}
+.complete_items_show .added_items,.complete_items_show .marked_done .relative,.active_items_show .marked_done {display: none;}
 .complete_items_show .marked_done{display: flex;}
 .active_tabs{
     font-weight: bold;
