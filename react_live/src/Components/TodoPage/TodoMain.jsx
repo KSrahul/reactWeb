@@ -38,6 +38,7 @@ const getTodoFromLS = () =>{
     }
 }
 const TodoMain = () => {
+    let sourceElement = null
     const inputFocus = useRef(false);
     const [toDoDataObject, setToDoObject] = useState(getTodoFromLS());
     const [allState, setAllState] = useState(
@@ -45,7 +46,6 @@ const TodoMain = () => {
             inputValue: "",
             editeTextField: "",
             editItemObj: "",
-            findTopPosition : "",
             classTabs: 0,
         }
     )

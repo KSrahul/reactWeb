@@ -1,9 +1,9 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useState} from 'react'
 import BoxData from './BoxData.json'
 import {} from './Box.css'
 
 function BoxItems() {
-    const [defaultSelect, setDefaultSelect] = useState(0);
+    // const [defaultSelect, setDefaultSelect] = useState(0);
     const [isSelected, setIsSelected] = useState(true);
     const boxClick = (event) => {
         setIsSelected(isSelected === event ? false : event);

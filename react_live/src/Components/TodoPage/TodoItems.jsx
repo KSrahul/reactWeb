@@ -12,7 +12,7 @@ const TodoItems = (props) => {
                             onDragEnd={props.endDraging}>
                             
                             {
-                                props.editTxtField.id != todoListObj.id ? 
+                                props.editTxtField.id !== todoListObj.id ? 
                                     <>
                                         <div className="flex align-v-center">
                                             <div className="relative">
