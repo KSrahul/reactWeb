@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import {} from './Todo.css'
 import TodoItems from './TodoItems'
-import EditTodo from './EditTodoModal';
 import ToDoTextFiled from './ToDoTextFiled';
 
 const arrayTabs = ["All", "Active", "Completed"];
@@ -88,6 +87,9 @@ const TodoMain = () => {
             todoDataObj();
             allState.inputValue = "";
             activeAllTab();
+        }else{
+            alert("Input can't be blank!")
+            inputFocus.current.focus();
         }
     }
 
@@ -120,12 +122,10 @@ const TodoMain = () => {
     }
 
     const editTodoItems = (editObj, targetElement) => {
-        const editPosition = targetElement.currentTarget.getBoundingClientRect();
         setAllState(allKeys => ({
             ...allKeys,
             editeTextField : editObj.listName,
             editItemObj : editObj,
-            findTopPosition: editPosition.top
         }))
     }
 
@@ -139,7 +139,7 @@ const TodoMain = () => {
         }
     }
 
-    const saveEditData = () => {
+    const saveEditData = (event) => {
         const editedTodoData = toDoDataObject.filter((editedData) => {
             if (editedData.id === allState.editItemObj.id) {
                 editedData.listName = allState.editeTextField;
@@ -147,7 +147,7 @@ const TodoMain = () => {
             return editedData;
         })
         setToDoObject(editedTodoData);
-        allState.editeTextField = "";
+        allState.editItemObj = "";
     }
 
     const textareaEnterPress = (event) => {
@@ -159,7 +159,7 @@ const TodoMain = () => {
     const closeEditModal = () =>{
         setAllState(allKeys => ({
             ...allKeys,
-            editeTextField : "",
+            editItemObj : "",
         }))
     }
 
@@ -173,6 +173,10 @@ const TodoMain = () => {
     }
 
     const startDraggingItems = (event) =>{
+        console.log(event.currentTarget)
+    }
+
+    const endDragingItems = (event) =>{
         console.log(event)
     }
 
@@ -215,7 +219,13 @@ const TodoMain = () => {
                                 markRead={markAsDone}
                                 editItems={editTodoItems}
                                 checkVisibility={allState.classTabs}
-                                startDragging={startDraggingItems}>
+                                startDragging={startDraggingItems}
+                                endDraging={endDragingItems}
+                                editTxtField={allState.editItemObj}
+                                removeEditText={closeEditModal}
+                                editTodoValue={newEditValue}
+                                saveEditValue={saveEditData}
+                                textareaEnter={textareaEnterPress}>
                             </TodoItems>
                         </div>
                     : false
@@ -230,19 +240,6 @@ const TodoMain = () => {
                     : allState.classTabs === 2 && filterCompleteount.length < 1 ?
                         <div className="no_todo no_height">No Complete Items!</div>
                     : false
-                }
-
-                {
-                    allState.editeTextField.length > 0 ?
-                        <EditTodo
-                            removeEditText={closeEditModal}
-                            editTodoValue={newEditValue}
-                            textareaEnter={textareaEnterPress}
-                            editeTodoField={allState.editeTextField}
-                            saveEditValue={saveEditData}
-                            topPosition={allState.findTopPosition}>
-                        </EditTodo>
-                    :false
                 }
                 
                 <div className="cta_action flex">

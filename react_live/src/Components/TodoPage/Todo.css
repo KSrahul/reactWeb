@@ -24,6 +24,7 @@
     color: black;
     padding: 0px 0px 6px 0px;
     font-size: 16px;
+    caret-color: red;
 }
 .input_add > input::placeholder{
     color: black;
@@ -42,7 +43,7 @@
     right: 0;
 }
 .active_cta{
-    background-color: #e86969;
+    /* background-color: #e86969; */
 }
 
 .added_items{
@@ -134,10 +135,24 @@
     background-color: #026aa7;
     padding: 8px 18px;
     position: relative;
-    left: 4px;
-    top: 4px;
+    /* left: 4px; */
+    /* top: 4px; */
     border-radius: 4px;
+    margin-right: 10px;
 }
+.cancel_btn {
+    font-size: 14px;
+}
+.edit_val {
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    padding-left: 8px;
+    width: 100%;
+    margin-right: 20px;
+}
+.ctn_items{align-items: center;}
+.edit_main{width: 100%;justify-content: space-between;}
 .clear_items {
     width: max-content;
     /* margin: auto; */
