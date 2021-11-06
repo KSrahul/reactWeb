@@ -9,7 +9,7 @@ const TodoItems = (props) => {
                         <div className={`flex added_items ${todoListObj.isDone ? 'marked_done' : ''}`} key={todoListObj.id}
                             draggable="true"
                             onDragStart={props.startDragging}
-                            onDragEnd={props.endDraging}>
+                            onDragOver={props.endDraging}>
                             
                             {
                                 props.editTxtField.id !== todoListObj.id ? 

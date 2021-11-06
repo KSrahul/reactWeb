@@ -121,7 +121,7 @@ const TodoMain = () => {
         setToDoObject(markedReadData);
     }
 
-    const editTodoItems = (editObj, targetElement) => {
+    const editTodoItems = (editObj) => {
         setAllState(allKeys => ({
             ...allKeys,
             editeTextField : editObj.listName,
@@ -173,11 +173,11 @@ const TodoMain = () => {
     }
 
     const startDraggingItems = (event) =>{
-        console.log(event.currentTarget)
+        console.log(event.target)
     }
 
     const endDragingItems = (event) =>{
-        console.log(event)
+        console.log(event.target)
     }
 
     const filterActiveCount = toDoDataObject.filter((filterActiveCount) => {
