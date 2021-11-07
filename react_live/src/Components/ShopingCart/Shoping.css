@@ -6,7 +6,7 @@
     padding: 10px;
     border-radius: 10px;
 }
-.item_main > img {
+.prod_img {
     width: 100%;
     /* border-radius: 10px; */
 }
@@ -43,3 +43,16 @@
     padding: 10px 10px;
 }
 
+.fav_icons{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+}
+.add_item {
+    border-radius: 2px;
+    border: 1px solid #d4d5d9;
+    margin-top: 21px;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
