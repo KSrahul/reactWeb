@@ -4,6 +4,7 @@ import TabsMain from './Components/Tabs/TabsMain'
 import Example2 from './Components/SearchPage/SearchMain';
 import Example3 from './Components/TodoPage/TodoMain'
 import Example4 from './Components/Accordion/BoxItems'
+import ShopingMain from './Components/ShopingCart/ShopingMain'
 import { HashRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
               <Route exact path='/TabsMain' component={TabsMain}></Route>
               <Route exact path='/SearchPage' component={Example2}></Route>
               <Route exact path='/Accordion' component={Example4}></Route>
+              <Route exact path='/ShopingCart' component={ShopingMain}></Route>
           </Switch>
         </div>
       </HashRouter>

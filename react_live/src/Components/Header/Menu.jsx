@@ -31,9 +31,6 @@ const Menu = () => {
                 `   
                 }
             </style>
-            {/* <div className="logo_cen">
-                <img src={logo} width="100" alt="logo" />
-            </div> */}
             <div className="flex header_main">
                 <div>
                     <img src={logo} width="100" alt="logo" />
@@ -79,6 +76,14 @@ const Menu = () => {
                                 activeClassName="active_menu"
                                 to="/Accordion">
                                 Accordion
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink exact
+                                onClick={menuClick}
+                                activeClassName="active_menu"
+                                to="/ShopingCart">
+                                Shopping Cart
                             </NavLink>
                         </li>
                     </ul>
