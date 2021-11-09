@@ -25,7 +25,7 @@ const ShopingItem = (props) => {
                                     <div className="item_price">{price} </div>
                                     <div className="item_old_price">{old_price}</div>
                                 </div>
-                                <div className="add_item pointer">Add To Cart</div>
+                                <div className="add_item pointer" onClick={props.addToCart}>Add To Cart</div>
                             </div>
                         </div>
                     )

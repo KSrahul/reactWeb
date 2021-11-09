@@ -50,9 +50,12 @@
 }
 .add_item {
     border-radius: 2px;
-    border: 1px solid #d4d5d9;
+    /* border: 1px solid #d4d5d9; */
     margin-top: 21px;
     padding: 10px;
     text-align: center;
     font-size: 14px;
+    background-color: #130c0c;
+    color: white;
+    font-weight: bold;
 }

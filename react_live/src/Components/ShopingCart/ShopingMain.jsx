@@ -5,7 +5,9 @@ import {} from '../ShopingCart/Shoping.css'
 import {} from '../SearchPage/Search.css'
 
 const ShopingMain = () => {
-    
+    const addToCart = (event) => {
+        console.log(event.target)
+    }
     return (
         <div className="all_shoping_content">
 
@@ -13,7 +15,8 @@ const ShopingMain = () => {
 
 
             <ShopingItem
-                ShopingData = {ShopingDataJson}
+                ShopingData={ShopingDataJson}
+                addToCart={addToCart}
             >
             </ShopingItem>
         </div>
