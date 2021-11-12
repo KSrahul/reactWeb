@@ -1,10 +1,25 @@
+import { useContext, useState} from 'react'
+import { CartDataContext } from '../../Context/CartDataContext'
 const ShopingItem = (props) => {
+    const cartItemsData = useContext(CartDataContext)
+
+    // const [addedItems, addedItemsFun] = useState({
+    //         itemsObjId : [],
+    //     }
+    // )
+
+    // if(JSON.parse(cartItemsData.cartItemsData)){
+    //     JSON.parse(cartItemsData.cartItemsData).map((allItems) =>{
+    //         addedItems.itemsObjId.push(allItems.itemId)
+    //     })
+    // }
+
+    
     return(
         <div className="product_list">
             {
                 props.ShopingData.map((data) => {
-                    const {id, image, name, old_price, price, dexcription} = data;
-
+                    const {id, image, name, old_price, price, dexcription} = data;                    
                     return(
                         <div className="item_main" key={id}>
                             <div className="relative">
@@ -25,7 +40,11 @@ const ShopingItem = (props) => {
                                     <div className="item_price">{price} </div>
                                     <div className="item_old_price">{old_price}</div>
                                 </div>
-                                <div className="add_item pointer" onClick={props.addToCart}>Add To Cart</div>
+                                {
+                                    props.itemsObjId.includes(id) ? 
+                                        <div className="add_item remove_items pointer">Remove From Cart</div>
+                                    : <div className="add_item pointer" onClick={() => props.addToCart(data, data.id)}>Add To Cart</div>
+                                }
                             </div>
                         </div>
                     )

@@ -38,7 +38,7 @@ const getTodoFromLS = () =>{
     }
 }
 const TodoMain = () => {
-    let sourceElement = null
+    // let sourceElement = null
     const inputFocus = useRef(false);
     const [toDoDataObject, setToDoObject] = useState(getTodoFromLS());
     const [allState, setAllState] = useState(
@@ -181,15 +181,11 @@ const TodoMain = () => {
     }
 
     const filterActiveCount = toDoDataObject.filter((filterActiveCount) => {
-        if(!filterActiveCount.isDone){
-            return filterActiveCount
-        }
+        return !filterActiveCount.isDone
     })
 
     const filterCompleteount = toDoDataObject.filter((filterCompleteount) => {
-        if(filterCompleteount.isDone){
-            return filterCompleteount
-        }
+        return filterCompleteount.isDone
     })
 
 
