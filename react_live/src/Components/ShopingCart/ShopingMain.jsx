@@ -55,8 +55,16 @@ const ShopingMain = () => {
         allState.itemsObjId.push(id)
     }
 
+    const removeFromCart = (id) => {
+        const removeItem = shopingData.filter((remvItems) =>{
+            return remvItems.itemId !== id;
+        })
+
+        shopingDataFun(removeItem);
+    }
+
     localStorage.setItem("allShopingData", JSON.stringify(shopingData));
-    
+
     return (
         <div className="all_shoping_content">
 
@@ -67,6 +75,7 @@ const ShopingMain = () => {
                 ShopingData={ShopingDataJson}
                 addToCart={addToCart}
                 itemsObjId={allState.itemsObjId}
+                removeFromCart={removeFromCart}
             >
             </ShopingItem>
         </div>

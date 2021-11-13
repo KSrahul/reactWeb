@@ -42,7 +42,7 @@ const ShopingItem = (props) => {
                                 </div>
                                 {
                                     props.itemsObjId.includes(id) ? 
-                                        <div className="add_item remove_items pointer">Remove From Cart</div>
+                                        <div className="add_item remove_items pointer" onClick={() => props.removeFromCart(data.id)}>Remove From Cart</div>
                                     : <div className="add_item pointer" onClick={() => props.addToCart(data, data.id)}>Add To Cart</div>
                                 }
                             </div>
