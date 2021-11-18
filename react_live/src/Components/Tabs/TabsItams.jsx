@@ -4,10 +4,11 @@ const filterAllItems = (props) => {
             <div className="items_main">
                 {
                     props.allCateItems.map((allItems) =>{
-                        const {id, image, category, dexcription} = allItems;
+                        const {id, tab_content} = allItems;
                         return( 
-                            <div key={id} className="items_divs" data-itemcate={category}>
-                                <img src={image} alt={dexcription} />
+                            <div key={id} className="items_divs">
+                                {/* <img src={image} alt={dexcription} /> */}
+                                {tab_content}
                             </div>
                         );
                     })

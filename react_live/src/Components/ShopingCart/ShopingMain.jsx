@@ -55,7 +55,10 @@ const ShopingMain = () => {
     const addToCart = (items, id) => {
         allState.currentItem = items;
         shopingDataObj();
-        allState.itemsObjId += id;
+        let string = ""
+        string += String(id)
+        // allState.itemsObjId += string;
+        console.log(string)
     }
 
     const removeFromCart = (id) => {
