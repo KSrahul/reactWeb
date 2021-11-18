@@ -48,14 +48,16 @@
 
 .added_items{
     justify-content: space-between;
-    background-color: #191933;
+    background-color: white;
     border-radius: 4px;
     margin-bottom: 12px;
-    padding: 12px 10px;
+    padding: 14px 10px;
     align-items: center;
-    transition: 0.6s;
+    /* transition: 0.6s; */
     transform: translateX(0px);
     animation: boxes 1s;
+    color: black;
+    border: 1px solid #c7c7c7;
 }
 /* @keyframes boxes {
     0% {
@@ -78,7 +80,11 @@
     align-items: center;
 }
 .marked_done{
-    background-color: #989898;
+    background-color: #dadada;
+}
+.active_box{
+    border-color: black;
+    padding: 8px 10px;
 }
 .task_name{
     outline: none;
@@ -139,6 +145,7 @@
     /* top: 4px; */
     border-radius: 4px;
     margin-right: 10px;
+    color: white;
 }
 .cancel_btn {
     font-size: 14px;
@@ -150,24 +157,25 @@
     padding-left: 8px;
     width: 100%;
     margin-right: 20px;
+    font-size: 15px;
 }
 .ctn_items{align-items: center;}
 .edit_main{width: 100%;justify-content: space-between;}
 .clear_items {
     width: max-content;
     /* margin: auto; */
-    background-color: red;
-    padding: 10px 10px;
-    border-radius: 6px;
-    /* /* margin-top: 30px; */
+    padding: 8px 13px;
+    border-radius: 4px;
     font-size: 15px;
+    color: red;
+    border: 1px solid red;
 }
 
 .pending_task {
     text-align: center;
     /* padding-top: 28px; */
-    color: red;
-    font-size: 18px;
+    color: #2d402a;
+    font-size: 16px;
 }
 .cta_action{
     align-items: center;
@@ -191,11 +199,11 @@
     width: 15px;
     height: 15px;
     /* background-color: #d4d3d3; */
-    margin-right: 6px;
+    margin-right: 5px;
     border-radius: 50%;
     position: relative;
     pointer-events: none;
-    border: 2px solid #C3C5D0;
+    border: 1px solid #828282;
 }
 .check::before {
     content: "";
@@ -220,7 +228,7 @@
     transform: scale(0);
     left: 50%;
     top: 47%;
-    transition: transform 0.4s;
+    transition: transform 0.0s;
 }
 .no_todo {
     height: 200px;

@@ -6,7 +6,7 @@ const TodoItems = (props) => {
             {
                 props.allTodoList.map((todoListObj, i) =>{
                     return(
-                        <div className={`flex added_items ${todoListObj.isDone ? 'marked_done' : ''}`} key={todoListObj.id}
+                        <div className={`flex added_items ${todoListObj.isDone ? 'marked_done' : ''} ${!todoListObj.isDone && props.editTxtField.id === todoListObj.id ? 'active_box' : ''}`} key={todoListObj.id}
                             draggable="true"
                             onDragStart={props.startDragging}
                             onDragOver={props.endDraging}>
