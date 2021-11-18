@@ -20,14 +20,15 @@ const ShopingMain = () => {
     const [allState, setAllState] = useState(
         {
             currentItem: null,
-            itemsObjId: []
+            itemsObjId: ""
         }
     )
 
     if(JSON.parse(cartItemsData.cartItemsData)){
-        JSON.parse(cartItemsData.cartItemsData).map((allItems) =>{
-            allState.itemsObjId.push(allItems.itemId)
+        const itemIds = JSON.parse(cartItemsData.cartItemsData).map((allItems) =>{
+            return allItems.itemId;
         })
+        allState.itemsObjId = itemIds;
     }
 
     const shopingDataObj = () =>{
@@ -52,7 +53,7 @@ const ShopingMain = () => {
     const addToCart = (items, id) => {
         allState.currentItem = items;
         shopingDataObj();
-        allState.itemsObjId.push(id)
+        allState.itemsObjId += id;
     }
 
     const removeFromCart = (id) => {
