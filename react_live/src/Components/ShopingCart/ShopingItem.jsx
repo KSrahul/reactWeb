@@ -1,20 +1,6 @@
 import { useContext, useState} from 'react'
 import { CartDataContext } from '../../Context/CartDataContext'
 const ShopingItem = (props) => {
-    const cartItemsData = useContext(CartDataContext)
-
-    // const [addedItems, addedItemsFun] = useState({
-    //         itemsObjId : [],
-    //     }
-    // )
-
-    // if(JSON.parse(cartItemsData.cartItemsData)){
-    //     JSON.parse(cartItemsData.cartItemsData).map((allItems) =>{
-    //         addedItems.itemsObjId.push(allItems.itemId)
-    //     })
-    // }
-
-    
     return(
         <div className="product_list">
             {
