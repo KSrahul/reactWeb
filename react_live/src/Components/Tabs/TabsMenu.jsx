@@ -1,27 +1,23 @@
-// uniquItems, filterItemsData, classActive
-const FilterTabs = (props) => {
-    return(
-        <>
-            <div className="tabs_boxes_container">
-                <div className="tabs_raw">
-                    {
-                        props.uniquItems.map((itemsCate, indexVal) => {
-                            return(
-                                <div key={indexVal} data-name={itemsCate}
-                                    className={
-                                        `tabsLink ${props.classActive === indexVal ? "activeTabs" : ""}`
-                                    }
-                                    onClick={() => props.filterItemsData(itemsCate, indexVal)}
-                                >
-                                    {itemsCate}
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-            </div>
-        </>
+import React from 'react'
+
+export const TabsMenu = (props) => {
+    return (
+        <div className="tabs_raw">
+            {
+                props.allTabsData.map((itemsCate, indexVal) => {
+                    const {id, tab_text} = itemsCate;
+                    return(
+                        <div key={id}
+                            className={
+                                `tabsLink ${props.classActiveCheck === indexVal ? "activeTabs" : ""}`
+                            }
+                            onClick={() => props.clickTabs(indexVal)}
+                        >
+                            {tab_text}
+                        </div>
+                    )
+                })
+            }
+        </div>
     )
 }
-
-export default FilterTabs;

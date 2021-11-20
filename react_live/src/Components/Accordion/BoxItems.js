@@ -3,7 +3,6 @@ import BoxData from './BoxData.json'
 import {} from './Box.css'
 
 function BoxItems() {
-    // const [defaultSelect, setDefaultSelect] = useState(0);
     const [isSelected, setIsSelected] = useState(true);
     const boxClick = (event) => {
         setIsSelected(isSelected === event ? false : event);
@@ -20,7 +19,7 @@ function BoxItems() {
                                 <div className={``}>{boxItem.title}</div>
                                 <div className={`acoor_icon ${isSelected === boxId ? "rotate_aero" : ""}`}>
                                     +
-                                </div>                                
+                                </div>
                             </div>
 
                             <div className={`accod_content ${isSelected === boxId  ? "show_content" : ""}`}>
