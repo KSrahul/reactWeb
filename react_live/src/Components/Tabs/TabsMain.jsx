@@ -6,8 +6,9 @@ import { TabsMenu } from './TabsMenu';
 
 const FilterTabs = () => {
     const [classActiveCheck, classActiveFun] = useState(0);
-        const clickTabs = (indexNum) => {
+    const clickTabs = (element, indexNum) => {
         classActiveFun(indexNum);
+        console.log(element.target.getBoundingClientRect())
     }
     return(
         <div className="tabs_boxes_container">
