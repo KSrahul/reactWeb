@@ -25,11 +25,9 @@ const ShopingMain = () => {
     )
 
     if(JSON.parse(cartItemsData.cartItemsData)){
-        let allIds = "";
-        JSON.parse(cartItemsData.cartItemsData).map((allItems) =>{
-            allIds += allItems.itemId
-        })
-        allState.itemsObjId = allIds;
+        // JSON.parse(cartItemsData.cartItemsData).map((allItems) =>{
+        //     allState.itemsObjId += allItems.itemId
+        // })
     }
 
     const shopingDataObj = () =>{

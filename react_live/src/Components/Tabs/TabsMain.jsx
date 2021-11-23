@@ -8,7 +8,8 @@ const FilterTabs = () => {
     const [classActiveCheck, classActiveFun] = useState(0);
     const clickTabs = (element, indexNum) => {
         classActiveFun(indexNum);
-        console.log(element.target.getBoundingClientRect())
+        // target.getBoundingClientRect()
+        console.log(element.target.offsetLeft)
     }
     return(
         <div className="tabs_boxes_container">
