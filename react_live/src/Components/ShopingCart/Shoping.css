@@ -62,6 +62,35 @@
 .remove_items{
     background-color: #fd3939;
 }
+.show_cart_main{
+    transform: translateX(0%);
+}
+.cart_main {
+    position: fixed;
+    background-color: red;
+    box-shadow: 0 0 4px 0 rgb(33 33 33 / 30%);
+    top: 0px;
+    z-index: 99999;
+    width: 300px;
+    right: 0;
+    padding: 10px;
+    height: 100%;
+    transform: translateX(100%);
+    transition: 0.4s;
+}
+.cart_count {
+    position: absolute;
+    color: white;
+    top: -9px;
+    right: 7px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 17px;
+    height: 17px;
+    background-color: red;
+    text-align: center;
+    border-radius: 50%;
+}
 /* .header_main{
     background-color: #fbfbfb;
 } */

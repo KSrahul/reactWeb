@@ -1,5 +1,5 @@
 import './Main.css';
-import Menu from './Components/Header/Menu';
+import Header from './Components/Header/Menu';
 import TabsMain from './Components/Tabs/TabsMain'
 import Example2 from './Components/SearchPage/SearchMain';
 import Example3 from './Components/TodoPage/TodoMain'
@@ -12,7 +12,7 @@ function App() {
     <>
       <DataToSendFun>
           <HashRouter basename={process.env.PUBLIC_URL}>
-            <Menu></Menu>
+            <Header></Header>
             <div className="main_container">
               <Switch>
                   <Route exact path='/' component={Example3}></Route>

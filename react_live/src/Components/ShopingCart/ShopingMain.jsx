@@ -1,8 +1,7 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useState, useEffect} from 'react'
 import ShopingDataJson from './ShopingListData.json'
 import ShopingItem from './ShopingItem'
 import {} from '../ShopingCart/Shoping.css'
-import { CartDataContext } from '../../Context/CartDataContext'
 
 
 const getShopingData = () =>{
@@ -14,21 +13,15 @@ const getShopingData = () =>{
     }
 }
 const ShopingMain = () => {
-    const cartItemsData = useContext(CartDataContext)
-    const [shopingData, shopingDataFun] = useState(getShopingData())
+    const [shopingData, shopingDataFun] = useState(getShopingData());
 
-    const [allState, setAllState] = useState(
+    const [allState] = useState(
         {
             currentItem: null,
-            itemsObjId: ""
+            itemsObjId: []
         }
     )
-
-    if(JSON.parse(cartItemsData.cartItemsData)){
-        // JSON.parse(cartItemsData.cartItemsData).map((allItems) =>{
-        //     allState.itemsObjId += allItems.itemId
-        // })
-    }
+    
 
     const shopingDataObj = () =>{
         
@@ -53,10 +46,7 @@ const ShopingMain = () => {
     const addToCart = (items, id) => {
         allState.currentItem = items;
         shopingDataObj();
-        let string = ""
-        string += String(id)
-        // allState.itemsObjId += string;
-        console.log(string)
+        allState.itemsObjId.push(id)
     }
 
     const removeFromCart = (id) => {
@@ -67,14 +57,13 @@ const ShopingMain = () => {
         shopingDataFun(removeItem);
     }
 
+    // const showCart = () =>{
+    //     alert("Cliked")
+    // }
     localStorage.setItem("allShopingData", JSON.stringify(shopingData));
 
     return (
         <div className="all_shoping_content">
-
-
-
-
             <ShopingItem
                 ShopingData={ShopingDataJson}
                 addToCart={addToCart}

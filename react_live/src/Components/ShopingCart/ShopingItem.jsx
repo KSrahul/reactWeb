@@ -1,5 +1,3 @@
-import { useContext, useState} from 'react'
-import { CartDataContext } from '../../Context/CartDataContext'
 const ShopingItem = (props) => {
     return(
         <div className="product_list">
