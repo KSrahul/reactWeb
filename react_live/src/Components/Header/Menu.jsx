@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import {} from './navbar.css';
 import {NavLink} from 'react-router-dom'
 import { useState } from 'react';
-import { ShopingCartIcon } from '../ShopingCart/ShopingCart';
+import { ShopingCartIcon } from '../ShopingCart/CartIcon';
 
 const Menu = () => {
     const [openHame, setOpenHame] = useState(false)

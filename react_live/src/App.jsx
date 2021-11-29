@@ -7,11 +7,12 @@ import Example4 from './Components/Accordion/BoxItems'
 import ShopingMain from './Components/ShopingCart/ShopingMain'
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { DataToSendFun } from './Context/CartDataContext';
+import ShopingCart from './Components/ShopingCart/ShopingCart';
 function App() {
   return (
     <>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <DataToSendFun>
-          <HashRouter basename={process.env.PUBLIC_URL}>
             <Header></Header>
             <div className="main_container">
               <Switch>
@@ -22,8 +23,9 @@ function App() {
                   <Route exact path='/ShopingCart' component={ShopingMain}></Route>
               </Switch>
             </div>
-          </HashRouter>
+            <ShopingCart />
         </DataToSendFun>
+    </HashRouter>
     </>
   );
 }

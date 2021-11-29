@@ -1,20 +1,12 @@
-import React, { useContext, useState, useEffect} from 'react'
+import React, { useContext, useState} from 'react'
 import ShopingDataJson from './ShopingListData.json'
 import ShopingItem from './ShopingItem'
 import {} from '../ShopingCart/Shoping.css'
+import { CartDataContext } from '../../Context/CartDataContext'
 
-
-const getShopingData = () =>{
-    const shopingData = localStorage.getItem("allShopingData");
-    if(shopingData){
-        return JSON.parse(shopingData);
-    }else{
-        return [];
-    }
-}
 const ShopingMain = () => {
-    const [shopingData, shopingDataFun] = useState(getShopingData());
-
+    const {setCartItemCount, shopingItems} = useContext(CartDataContext);
+    const [shopingData, setShopingData] = useState(shopingItems);
     const [allState] = useState(
         {
             currentItem: null,
@@ -27,7 +19,7 @@ const ShopingMain = () => {
         
         const {id, name, price, old_price, image, dexcription} = allState.currentItem;
 
-        shopingDataFun(
+        setShopingData(
             [
                 {
                     itemId : id,
@@ -46,20 +38,21 @@ const ShopingMain = () => {
     const addToCart = (items, id) => {
         allState.currentItem = items;
         shopingDataObj();
-        allState.itemsObjId.push(id)
+        allState.itemsObjId.push(id);
+        setCartItemCount(shopingData.length);
     }
+
+    // setTimeout(() => {
+    //     setCartItemCount(shopingData.length)
+    // }, 1);
 
     const removeFromCart = (id) => {
         const removeItem = shopingData.filter((remvItems) =>{
             return remvItems.itemId !== id;
         })
-
-        shopingDataFun(removeItem);
+        setShopingData(removeItem);
     }
 
-    // const showCart = () =>{
-    //     alert("Cliked")
-    // }
     localStorage.setItem("allShopingData", JSON.stringify(shopingData));
 
     return (
