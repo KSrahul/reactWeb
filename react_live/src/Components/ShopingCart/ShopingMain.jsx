@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useState, useEffect} from 'react'
 import ShopingDataJson from './ShopingListData.json'
 import ShopingItem from './ShopingItem'
 import {} from '../ShopingCart/Shoping.css'
@@ -39,8 +39,13 @@ const ShopingMain = () => {
         allState.currentItem = items;
         shopingDataObj();
         allState.itemsObjId.push(id);
-        setCartItemCount(shopingData.length);
+        // setCartItemCount(shopingData.length);
     }
+
+    useEffect(() => {
+        setCartItemCount(shopingData.length);
+
+    }, [shopingData])
 
     // setTimeout(() => {
     //     setCartItemCount(shopingData.length)

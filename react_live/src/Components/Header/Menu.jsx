@@ -18,9 +18,9 @@ const Menu = () => {
             <style>
                 {
                 `
-                    .main_container{margin-top: 90px;color: black;}
+                    .main_container{margin-top: 34px;color: black;}
                     .logo_cen{text-align: center;padding-top: 10px;}
-                    .hamburger_icon{margin-right: 20px;}
+                    // .hamburger_icon{margin-right: 20px;}
                     .ham_menus_list{position: fixed;top: 0;width: 100%;left: 0;height: 100%;background-color: white;transform: translateY(-100%);z-index: 9;overflow: hidden;}
                     .show_ham_menus{transform: translateY(0%);transition: 0.4s;}
                     .hamburger_icon{z-index: 10;}
@@ -29,17 +29,17 @@ const Menu = () => {
                     .ham_cross > svg > #hamone{transform: rotate(21deg) translateY(0px) translateX(16px);}
                     .ham_cross > svg > #hamtwo{transform: rotate(-25deg) translateY(23px) translateX(-39px);}
                     .ham_cross > svg > #hamthree{display:none;}
-                    .shoping_header {background-color: #f7f7f7;box-shadow: unset;}
-                    .shoping_header .hamburger_icon svg{fill: black;}
+                    // .shoping_header {background-color: #f7f7f7;box-shadow: unset;}
+                    // .shoping_header .hamburger_icon svg{fill: black;}
                     .cart_items {margin-right: 20px;top: 4px;}
                     .cart_ham{align-items: center;}
                 `   
                 }
             </style>
             <div className={`flex header_main ${window.location.hash === "#/reactWeb/ShopingCart" ? 'shoping_header' : ''}`}>
-                <div>
+                {/* <div>
                     <img src={logo} width="100" alt="logo" />
-                </div>
+                </div> */}
 
                 <div className="flex cart_ham">
                     <ShopingCartIcon />
@@ -54,8 +54,8 @@ const Menu = () => {
                     </div>
 
                 </div>
-                
-                <div className={`ham_menus_list ${openHame ? "show_ham_menus" : ""}`}>
+            </div>
+            <div className={`ham_menus_list ${openHame ? "show_ham_menus" : ""}`}>
                     <ul className="flex menu_list">
                         <li>
                             <NavLink exact
@@ -99,7 +99,6 @@ const Menu = () => {
                         </li>
                     </ul>
                 </div>
-            </div>
         </>
     )
 }

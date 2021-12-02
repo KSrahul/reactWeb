@@ -3,7 +3,7 @@
 .search_pop_icon{position:absolute;right:0;top:50%;transform:translate(-50%,-42%)}
 .cross_icon{cursor:pointer}
 .search_main{width:40%;margin:auto;text-align:center}
-.indian_sta{padding-bottom:10px}
+.indian_sta{padding-bottom:10px;color: white;}
 .search_content{    position: absolute;
     top: calc(0px + 58px);
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 40%);
