@@ -33,6 +33,18 @@ const getTodoFromLS = () =>{
                 listName : "Task 4",
                 isDone : true,
                 isRemove : false,
+            },
+            {
+                id : "5",
+                listName : "Task 5",
+                isDone : false,
+                isRemove : false,
+            },
+            {
+                id : "6",
+                listName : "Task 6",
+                isDone : true,
+                isRemove : false,
             }
         ];
     }
