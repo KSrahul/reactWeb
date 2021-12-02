@@ -26,5 +26,11 @@
 .menu_list li a{color: black;text-decoration: none;}
 .active_menu{border-bottom: 2px solid #e03535;padding-bottom: 4px;}
 @media (max-width: 750px){
-    .header_main{width: 100%;padding: 0px;position: unset;}
+    .header_main{
+        width: 100%;
+    padding: 0px;
+    position: unset;
+    width: max-content;
+    margin: 14px 014px 14px auto;
+    }
 }
