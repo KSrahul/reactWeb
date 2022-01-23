@@ -1,3 +1,10 @@
 .flex{
   display: flex;
 }
+.relative{
+  position: relative;
+}
+.pointer{
+  cursor: pointer;
+}
+.align-v-center{align-items: center;}

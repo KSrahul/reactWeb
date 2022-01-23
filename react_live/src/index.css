@@ -6,11 +6,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
-  background-color: #345067;
+  /* background-color: #6d926f; */
+  /* background-color: #ccc; */
+  background-image: linear-gradient(to left, #3c3733, #989898);
   color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+/* .main_container{margin-top: 90px;color: black;} */
+@media (max-width: 750px){
+  body .main_container{margin-top: 20px;}
+  body .boxes_main{
+    width: calc(100% - 40px);
+  }
 }

@@ -1,0 +1,110 @@
+[
+    {
+        "id": 1,
+        "name" : "Lorem1",
+        "price": "₹700",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 2,
+        "name" : "Lorem2",
+        "price": "₹600",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 3,
+        "name" : "Lorem3",
+        "price": "₹600",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 4,
+        "name" : "Lorem4",
+        "price": "₹800",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 5,
+        "name" : "Lorem5",
+        "price": "₹700",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 6,
+        "name" : "Lorem6",
+        "price": "₹700",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 7,
+        "name" : "Lorem7",
+        "price": "₹700",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 8,
+        "name" : "Lorem8",
+        "price": "₹700",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 9,
+        "name" : "Lorem9",
+        "price": "₹700",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 10,
+        "name" : "Lorem10",
+        "price": "₹700",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 11,
+        "name" : "Lorem11",
+        "price": "₹700",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    },
+    {
+        "id": 12,
+        "name" : "Lorem12",
+        "price": "₹700",
+        "old_price": "₹900",
+        "image": "https://assets.myntassets.com/dpr_2,q_60,w_210,c_limit,fl_progressive/assets/images/11165538/2020/2/3/042232c0-70c0-428f-b050-a6aa08c8e2531580723796127-Levis-Men-Tshirts-5691580723794029-1.jpg",
+        "dexcription": "Lorem ipsum dolor",
+        "is_fav": false
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "tab_text": "TAB1",
+        "tab_content": "This is TAB 1 section, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque"
+    },
+    {
+        "id": 2,
+        "tab_text": "TAB2",
+        "tab_content": "This is TAB 2 section, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque"
+    },
+    {
+        "id": 3,
+        "tab_text": "TAB3",
+        "tab_content": "This is TAB 3 section, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque"
+    },
+    {
+        "id": 4,
+        "tab_text": "TABE4",
+        "tab_content": "This is TAB 4 section, Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, eaque"
+    }
+]

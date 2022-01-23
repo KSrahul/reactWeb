@@ -1,15 +1,31 @@
-// import logo from './logo.svg';
 import './Main.css';
-import Menu from './Components/Navbar/Menu';
-import Tabs from './Components/Tabs/Tabs';
-import FilterMain from './Components/Filter/FilterMain'
-
+import Header from './Components/Header/Menu';
+import TabsMain from './Components/Tabs/TabsMain'
+import Example2 from './Components/SearchPage/SearchMain';
+import Example3 from './Components/TodoPage/TodoMain'
+import Example4 from './Components/Accordion/BoxItems'
+import ShopingMain from './Components/ShopingCart/ShopingMain'
+import { HashRouter, Switch, Route } from 'react-router-dom';
+import { DataToSendFun } from './Context/CartDataContext';
+import ShopingCart from './Components/ShopingCart/ShopingCart';
 function App() {
   return (
     <>
-      {/* <Menu></Menu>
-      <Tabs></Tabs> */}
-      <FilterMain></FilterMain>
+    <HashRouter basename={process.env.PUBLIC_URL}>
+      <DataToSendFun>
+            <Header></Header>
+            <div className="main_container">
+              <Switch>
+                  <Route exact path='/' component={Example3}></Route>
+                  <Route exact path='/TabsMain' component={TabsMain}></Route>
+                  <Route exact path='/SearchPage' component={Example2}></Route>
+                  <Route exact path='/Accordion' component={Example4}></Route>
+                  <Route exact path='/ShopingCart' component={ShopingMain}></Route>
+              </Switch>
+            </div>
+            <ShopingCart />
+        </DataToSendFun>
+    </HashRouter>
     </>
   );
 }

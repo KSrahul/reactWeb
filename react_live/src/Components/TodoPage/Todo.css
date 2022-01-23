@@ -1,0 +1,282 @@
+.todo_main {
+    width: 46%;
+    margin: 0px auto;
+    background-color: white;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 0 rgb(134 134 134 / 50%);
+    min-height: 140px;
+}
+.todo_text {
+    font-size: 20px;
+    /* font-weight: 500; */
+    padding-bottom: 26px;
+    text-align: center;
+    color: black;
+}
+.input_add > input {
+    border: 0px;
+    width: calc(100% - 50px);
+    border-bottom: 1px solid black;
+    background-color: unset;
+    outline: none;
+    color: black;
+    padding: 0px 0px 6px 0px;
+    font-size: 16px;
+    caret-color: red;
+}
+.input_add > input::placeholder{
+    color: black;
+}
+.add_btn {
+    background-color: #44b8e4;
+    font-size: 31px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(0px - 18px);
+    right: 0;
+}
+.active_cta{
+    /* background-color: #e86969; */
+}
+
+.added_items{
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    padding: 14px 10px;
+    align-items: center;
+    /* transition: 0.6s; */
+    transform: translateX(0px);
+    animation: boxes 1s;
+    color: black;
+    border: 1px solid #c7c7c7;
+}
+/* @keyframes boxes {
+    0% {
+        transform: translateX(-100px);
+        background-color: red;
+    }
+} */
+.all_todo {
+    margin-top: 22px;
+    /* max-height: 400px; */
+    /* overflow-y: auto; */
+}
+.all_todo::-webkit-scrollbar{
+    display: none;
+}
+.added_items:last-child {
+    margin-bottom: 0px;
+}
+.right_icons{
+    align-items: center;
+}
+.marked_done{
+    background-color: #dadada;
+}
+.active_box{
+    border-color: black;
+    padding: 8px 10px;
+}
+.task_name{
+    outline: none;
+    margin-left: 6px;
+    font-size: 15px;
+}
+.marked_done .task_name{    
+    text-decoration: line-through;
+}
+.eye_mark{margin:0px  16px;}
+.eye_mark:hover .lin_eye, .marked_done .lin_eye{
+    position: absolute;
+    width: 100%;
+    background-color: red;
+    height: 3px;
+    transform: rotate(135deg);
+    top: 10px;
+}
+.marked_done .eye_mark > svg{
+    /* fill: #d8d5d5; */
+}
+.marked_done .edit_icon{pointer-events: none;}
+.marked_done .edit_icon > svg{fill: #ababab;}
+.quick_edit{
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    background: #0009;
+}
+.text_save {
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.cross_sign{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+}
+.text_save > textarea {
+    resize: none;
+    padding: 10px 5px;
+    height: 60px;
+    width: 296px;
+    border-radius: 6px;
+    outline: none;
+}
+.save_btn {
+    width: max-content;
+    background-color: #026aa7;
+    padding: 8px 18px;
+    position: relative;
+    /* left: 4px; */
+    /* top: 4px; */
+    border-radius: 4px;
+    margin-right: 10px;
+    color: white;
+}
+.cancel_btn {
+    font-size: 14px;
+}
+.edit_val {
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    padding-left: 8px;
+    width: 100%;
+    margin-right: 20px;
+    font-size: 15px;
+}
+.ctn_items{align-items: center;}
+.edit_main{width: 100%;justify-content: space-between;}
+.clear_items {
+    width: max-content;
+    /* margin: auto; */
+    padding: 8px 13px;
+    border-radius: 4px;
+    font-size: 15px;
+    color: red;
+    border: 1px solid red;
+}
+
+.pending_task {
+    text-align: center;
+    /* padding-top: 28px; */
+    color: #2d402a;
+    font-size: 16px;
+}
+.cta_action{
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 24px;
+    position: sticky;
+    bottom: 0px;
+    background-color: white;
+    padding: 8px 0px;
+}
+.edit_icon {
+    margin-right: 15px;
+}
+.def_check{    opacity: 0;
+    position: absolute;
+    top: 0px;
+    width: calc(100% - 8px);
+    margin: 0;
+    height: 100%;}
+.check {
+    width: 15px;
+    height: 15px;
+    /* background-color: #d4d3d3; */
+    margin-right: 5px;
+    border-radius: 50%;
+    position: relative;
+    pointer-events: none;
+    border: 1px solid #828282;
+}
+.check::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: #26a69a; */
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    /* transition: 0.4s; */
+    border-radius: 50%;
+}
+.check::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 8px;
+    border: solid green;
+    border-width: 0 2px 2px 0;
+    transform: scale(0);
+    left: 50%;
+    top: 47%;
+    transition: transform 0.0s;
+}
+.no_todo {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #c73636;
+}
+.tabs_todo {
+    color: #383434;
+    font-size: 15px;
+    padding: 4px 0px;
+    margin-right: 18px;
+    display: flex;
+}
+span.item_count {
+    position: relative;
+    top: -6px;
+    color: white;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    text-align: center;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 3px;
+}
+.complete_items_show .added_items,.complete_items_show .marked_done .relative,.active_items_show .marked_done {display: none;}
+.complete_items_show .marked_done{display: flex;}
+.active_tabs{
+    font-weight: bold;
+}
+.def_check:checked + .check::after {transform: translate(-50%, -50%)rotate(45deg);}
+.def_check:checked + .check::before {transform: scale(1);}
+/* .complete_items_show .marked_done{display: none;}
+.active_items_show .added_items{display: none;}
+.all_todo .added_items, .active_items_show .marked_done{display: flex;} */
+.inner_items{width: 100%;justify-content: space-between;}
+@media (max-width: 750px){
+    .todo_main{width: calc(100% - 40px);padding: 10px 10px;}
+    .pending_task{font-size: 16px;padding-bottom: 20px;}
+    .eye_mark:hover .lin_eye{
+        display: none;
+    }
+    .cta_action{flex-direction: column;}
+    .cta_btns{padding-bottom: 20px;}
+}
