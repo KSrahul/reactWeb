@@ -4,7 +4,6 @@ const EditTodoModal = (props) => {
     const textAraFocus = useRef(null)
 
     useEffect(() => {
-        // textAraFocus.current.select();
         textAraFocus.current.focus();
     }, [])
     return (

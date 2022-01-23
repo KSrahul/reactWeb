@@ -1,292 +1,270 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useReducer, useRef } from 'react'
 import {} from './Todo.css'
-import TodoItems from './TodoItems'
-import ToDoTextFiled from './ToDoTextFiled';
+import {TodoItems} from './TodoItems'
+import {ToDoTextFiled} from './ToDoTextFiled';
+import {TodoTabs} from './TodoTabs';
+import {TodoDefaultData} from './TodoDefaultData';
 
-const arrayTabs = ["All", "Active", "Completed"];
-const getTodoFromLS = () =>{
-    const todoLS = localStorage.getItem("allTodoData");
-    if(todoLS){
-        return JSON.parse(todoLS);
-    }else{
-        return [
-            {
-                id : "1",
-                listName : "Task 1",
-                isDone : false,
-                isRemove : false,
-            },
-            {
-                id : "2",
-                listName : "Task 2",
-                isDone : false,
-                isRemove : false,
-            },
-            {
-                id : "3",
-                listName : "Task 3",
-                isDone : false,
-                isRemove : false,
-            },
-            {
-                id : "4",
-                listName : "Task 4",
-                isDone : true,
-                isRemove : false,
-            },
-            {
-                id : "5",
-                listName : "Task 5",
-                isDone : false,
-                isRemove : false,
-            },
-            {
-                id : "6",
-                listName : "Task 6",
-                isDone : true,
-                isRemove : false,
+const todoActionsType = {
+    ADD_ITEMS: "ADD_ITEMS",
+    REMOVE_ITEMS: "REMOVE_ITEMS",
+    EDIT_ITEMS: "EDIT_ITEMS",
+    DONE_ITEMS: "DONE_ITEMS",
+    REMOVE_ALL_ITEMS: "REMOVE_ALL_ITEMS",
+    TOGGLE_TABS: "TOGGLE_TABS",
+    COMPLETE_ITEMS: "COMPLETE_ITEMS",
+    REMOVEITEM: "REMOVEITEM",
+    HIDE_EDIT: "HIDE_EDIT",
+    EDIT_VALUE_UPDATE: "EDIT_VALUE_UPDATE",
+    SAVE_EDIT_VALUE: "SAVE_EDIT_VALUE"
+}
+
+const todoDefaultStates = {
+    todoAllData: TodoDefaultData(),
+    inputValue: "",
+    editeTextField: "",
+    editItemObj: "",
+    classTabs: 0,
+    todoCount: 0
+}
+
+const todoReducer = (todoState, todoAction) =>{
+    switch (todoAction.type) {
+        case "GET_VAL":
+            return {
+                ...todoState, 
+                inputValue : todoAction.inputTextValue
+            };
+        case todoActionsType.ADD_ITEMS:            
+            return {
+                ...todoState,
+                todoAllData: [
+                  ...todoState.todoAllData,
+                    { 
+                        id: new Date().getTime().toString(), 
+                        listName: todoState.inputValue, 
+                        isDone : false, 
+                        isRemove : false
+                    },
+                ],
+                inputValue: "",
+              }
+        case todoActionsType.REMOVE_ALL_ITEMS:            
+            return {
+                ...todoState,
+                todoAllData: []
             }
-        ];
+        case todoActionsType.TOGGLE_TABS:
+            return {
+                ...todoState,
+                classTabs : todoAction.classTabsIndex,
+                inputValue: "",
+            }
+        case todoActionsType.COMPLETE_ITEMS:
+            return {
+                ...todoState,
+                todoAllData: todoAction.markedReadData
+              }
+        case todoActionsType.REMOVEITEM:
+            return {
+                ...todoState,
+                todoAllData: todoAction.removeItem
+            }
+        case todoActionsType.EDIT_ITEMS:
+            return {
+                ...todoState,
+                editItemObj : todoAction.editItemObj,
+                editeTextField : todoAction.editeTextField
+            }
+        case todoActionsType.HIDE_EDIT:
+            return {
+                ...todoState,
+                editItemObj: ""
+            }
+        case todoActionsType.EDIT_VALUE_UPDATE:
+            return {
+                ...todoState,
+                editeTextField : todoAction.editeTextField
+            }
+        case todoActionsType.SAVE_EDIT_VALUE:
+            todoState.todoAllData.filter((saveValue) => {
+                if(saveValue.id === todoState.editItemObj.id){
+                    saveValue.listName = todoState.editeTextField;
+                }
+                return saveValue
+            });
+            return {
+                ...todoState,
+                editItemObj: "",
+            }
+        default:
+            return {...todoState}
     }
 }
+
 const TodoMain = () => {
-    // let sourceElement = null
     const inputFocus = useRef(false);
-    const [toDoDataObject, setToDoObject] = useState(getTodoFromLS());
-    const [allState, setAllState] = useState(
-        {
-            inputValue: "",
-            editeTextField: "",
-            editItemObj: "",
-            classTabs: 0,
-        }
-    )
-
-    const activeAllTab = () =>{
-        setAllState(allKeys => ({
-            ...allKeys,
-            classTabs : 0,
-        }))
-    }
-    const todoDataObj = () =>{
-        setToDoObject(
-            [
-                {
-                    id : new Date().getTime().toString(),
-                    listName : allState.inputValue,
-                    isDone : false,
-                    isRemove : false,
-                },
-                ...toDoDataObject
-            ]
-        )
-    }
-
-    const itemsCount = toDoDataObject.filter((allItemsCount) =>{
-        return !allItemsCount.isDone;
-    })
-
+    const [todoCurrentData, todoDataUpdate] = useReducer(todoReducer, todoDefaultStates)
+    
     const inputOnType = (event) => {
-        const currentVal = event.target.value;
-        setAllState(allKeys => ({
-            ...allKeys,
-            inputValue : currentVal,
-        }))
+        const getInputValue = {
+            type: "GET_VAL",
+            inputTextValue : event.target.value
+        }
+        todoDataUpdate(getInputValue)
+    }
+
+    const addItemsMethod = () =>{
+        todoDataUpdate({
+            type: todoActionsType.ADD_ITEMS
+        })
     }
 
     const addItemBtn = () => {
-        if(allState.inputValue.length > 0){
-            todoDataObj();
-            allState.inputValue = "";
-            activeAllTab();
+        if(todoCurrentData.inputValue.length > 0){
+            addItemsMethod()
         }else{
             alert("Input can't be blank!")
             inputFocus.current.focus();
         }
     }
-
+    
     const keyTypeCheck = (event) => {
-        if(event.key === "Enter" && allState.inputValue.length > 0){
-            todoDataObj();
-            allState.inputValue = "";
-            activeAllTab();
+        if(event.key === "Enter" && todoCurrentData.inputValue.length > 0){
+            addItemsMethod()
+        }
+    }
+    
+    const todoTabsToggle = (index) =>{
+        todoDataUpdate({
+            type: todoActionsType.TOGGLE_TABS,
+            classTabsIndex : index
+        })
+    }
+
+    const clearAll = () =>{
+        const confirmRemove = window.confirm("Are You Sure?");
+        if(confirmRemove){
+            todoDataUpdate({
+                type: todoActionsType.REMOVE_ALL_ITEMS
+            })
         }
     }
 
-    const removeSelectedItems = (targetTodoItem) => {
-        const restTodoData = toDoDataObject.filter((todoNew) =>{
-            return todoNew.id !== targetTodoItem;
-        })
-        setToDoObject(restTodoData);
-    }
+    const activeCount = todoCurrentData.todoAllData.filter((activeCount) => {
+        return !activeCount.isDone
+    })
+
+    const completeCount = todoCurrentData.todoAllData.filter((completeCount) => {
+        return completeCount.isDone
+    })
 
     const markAsDone = (itemObj) => {
-        const markedReadData = toDoDataObject.filter((markedRead) => {
+        const markedReadData = todoCurrentData.todoAllData.filter((markedRead) => {
             if(markedRead.id === itemObj.id){
-                markedRead.isDone === false ? 
-                markedRead.isDone = true : 
-                markedRead.isDone = false;
+                !markedRead.isDone ? markedRead.isDone = true : markedRead.isDone = false;
             }
             return markedRead;
         })
 
-        setToDoObject(markedReadData);
+        todoDataUpdate({
+            type: todoActionsType.COMPLETE_ITEMS,
+            markedReadData: markedReadData
+        })
+    }
+
+    const removeSelectedItems = (targetTodoItem) => {
+        const restTodoData = todoCurrentData.todoAllData.filter((todoNew) =>{
+            return todoNew.id !== targetTodoItem;
+        })
+        
+        todoDataUpdate({
+            type: todoActionsType.REMOVEITEM,
+            removeItem: restTodoData
+        })
     }
 
     const editTodoItems = (editObj) => {
-        setAllState(allKeys => ({
-            ...allKeys,
+        todoDataUpdate({
+            type: todoActionsType.EDIT_ITEMS,
             editeTextField : editObj.listName,
-            editItemObj : editObj,
-        }))
-    }
-
-    const newEditValue = (event) => {
-        if (event.target.value.length > 0) {
-            setAllState(allKeys => ({
-                ...allKeys,
-                editeTextField : event.target.value,
-                editItemObj : allState.editItemObj,
-            }))
-        }
-    }
-
-    const saveEditData = (event) => {
-        const editedTodoData = toDoDataObject.filter((editedData) => {
-            if (editedData.id === allState.editItemObj.id) {
-                editedData.listName = allState.editeTextField;
-            }
-            return editedData;
+            editItemObj : editObj
         })
-        setToDoObject(editedTodoData);
-        allState.editItemObj = "";
+    }
+
+    const closeEditModal = () =>{
+        todoDataUpdate({
+            type: todoActionsType.HIDE_EDIT
+        })
+    }
+
+    const saveEditData = () => {
+        todoDataUpdate({
+            type: todoActionsType.SAVE_EDIT_VALUE,
+        })
     }
 
     const textareaEnterPress = (event) => {
         if (event.key === "Enter" || event.key === "Escape") {
-            saveEditData();
+            todoDataUpdate({
+                type: todoActionsType.SAVE_EDIT_VALUE,
+            })
         }
     }
 
-    const closeEditModal = () =>{
-        setAllState(allKeys => ({
-            ...allKeys,
-            editItemObj : "",
-        }))
+    const newEditValue = (event) => {
+        if (event.target.value) {
+            todoDataUpdate({
+                type: todoActionsType.EDIT_VALUE_UPDATE,
+                editeTextField : event.target.value
+            })
+        }   
     }
 
-    localStorage.setItem("allTodoData", JSON.stringify(toDoDataObject));
+    localStorage.setItem("allTodoData", JSON.stringify(todoCurrentData.todoAllData));
 
-    const todoTabsFun = (name, index) =>{
-        setAllState(allKeys => ({
-            ...allKeys,
-            classTabs : index
-        }))
-    }
-
-    const startDraggingItems = (event) =>{
-        console.log(event.target)
-    }
-
-    const endDragingItems = (event) =>{
-        console.log(event.target)
-    }
-
-    const filterActiveCount = toDoDataObject.filter((filterActiveCount) => {
-        return !filterActiveCount.isDone
-    })
-
-    const filterCompleteount = toDoDataObject.filter((filterCompleteount) => {
-        return filterCompleteount.isDone
-    })
-
-
-    useEffect(() => {
-        inputFocus.current.focus();
-    }, [])
-
-      return(
-          <>
-            <div className="todo_main">
-                <div className="todo_text">Add Your Todo List</div>
-                
-                <ToDoTextFiled
-                    inputType={inputOnType}
-                    textAreaVal={allState.inputValue}
-                    keyCheck={keyTypeCheck}
-                    inputFocus={inputFocus}
-                    addItems={addItemBtn}>
-                </ToDoTextFiled>
-
-                {
-                    toDoDataObject.length > 0 ? 
-                        <div className={`all_todo ${allState.classTabs === 0 ? '' : allState.classTabs === 1 ? 'active_items_show' : 'complete_items_show'}`}>
-                            <TodoItems 
-                                allTodoList={toDoDataObject}
-                                removeItems={removeSelectedItems}
-                                markRead={markAsDone}
-                                editItems={editTodoItems}
-                                checkVisibility={allState.classTabs}
-                                startDragging={startDraggingItems}
-                                endDraging={endDragingItems}
-                                editTxtField={allState.editItemObj}
-                                removeEditText={closeEditModal}
-                                editTodoValue={newEditValue}
-                                saveEditValue={saveEditData}
-                                textareaEnter={textareaEnterPress}>
-                            </TodoItems>
-                        </div>
-                    : false
-                }
-                
-                {   
-                    toDoDataObject.length < 1 ?
-                        <div className="no_todo">Your todo will appear here</div>
-                    :
-                    allState.classTabs === 1 && filterActiveCount.length < 1 ? 
-                        <div className="no_todo no_height">No Active Items!</div>
-                    : allState.classTabs === 2 && filterCompleteount.length < 1 ?
-                        <div className="no_todo no_height">No Complete Items!</div>
-                    : false
-                }
-                
-                <div className="cta_action flex">
-                    <div className="pending_task">
-                        {itemsCount.length} items left
-                    </div>
-                    <div className="flex">
-                        {
-                            arrayTabs.map((tabsName, index) =>{
-                                return(
-                                    <div className=
-                                        {
-                                            `tabs_todo pointer cta_btns 
-                                                ${allState.classTabs === index ? "active_tabs" : ""}
-                                            `
-                                        }
-                                        onClick={() => todoTabsFun(tabsName, index)}
-                                        key={index}>{tabsName} <span className="item_count" key={index}>{index === 0 ? toDoDataObject.length : index === 1 ? filterActiveCount.length : filterCompleteount.length} </span>
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                    <div className="clear_items pointer" 
-                        onClick={() => {
-                            const confirmRemove = window.confirm("Are You Sure?");
-                            if(confirmRemove){
-                                setToDoObject([]);
-                            }
-                        }}>
-                        Clear All
-                    </div>
+    return(
+        <div className="todo_main">
+            <div className="todo_text">Add Your Todo List</div>
+            <ToDoTextFiled
+                inputType={inputOnType}
+                textAreaVal={todoCurrentData.inputValue}
+                keyCheck={keyTypeCheck}
+                inputFocus={inputFocus}
+                addItems={addItemBtn}>
+            </ToDoTextFiled>
+            
+            {todoCurrentData.todoAllData && 
+                <div className={`all_todo ${todoCurrentData.classTabs === 1 ? 'active_items_show' : todoCurrentData.classTabs === 2 ? 'complete_items_show' : ''}`}>
+                    <TodoItems
+                        allTodoList={todoCurrentData.todoAllData}
+                        editTxtField={todoCurrentData.editItemObj}
+                        markRead={markAsDone}
+                        removeItems={removeSelectedItems}
+                        editItems={editTodoItems}
+                        removeEditText={closeEditModal}
+                        editTodoValue={newEditValue}
+                        saveEditValue={saveEditData}
+                        textareaEnter={textareaEnterPress}>
+                    </TodoItems>
                 </div>
-                
-            </div>
+            }
 
-        </>
-      )
+            {todoCurrentData.todoAllData.length < 1 && 
+                <div className="no_todo">Your todo will appear here</div>
+            }
 
+            {todoCurrentData.todoAllData.length > 0 &&                
+                <TodoTabs
+                    allCount={todoCurrentData.todoAllData.length}
+                    classTabs={todoCurrentData.classTabs}
+                    todoTabsToggle={todoTabsToggle}
+                    clearAll={clearAll}
+                    activeCount={activeCount.length}
+                    completeCount={completeCount.length}>
+                </TodoTabs>
+            }
+        </div>
+    )
 }
-
 export default TodoMain

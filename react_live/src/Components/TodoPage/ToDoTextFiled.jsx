@@ -1,6 +1,4 @@
-import React from 'react'
-
-function ToDoTextFiled(props) {
+export const ToDoTextFiled = (props) => {
     return (
         <div className="input_add relative">
             <input 
@@ -18,5 +16,3 @@ function ToDoTextFiled(props) {
         </div>
     )
 }
-
-export default ToDoTextFiled

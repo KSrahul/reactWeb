@@ -1,18 +1,14 @@
 import EditTodoModal from "./EditTodoModal"
 
-const TodoItems = (props) => {
+export const TodoItems = (props) => {
     return(
         <>
             {
                 props.allTodoList.map((todoListObj, i) =>{
                     return(
-                        <div className={`flex added_items ${todoListObj.isDone ? 'marked_done' : ''} ${!todoListObj.isDone && props.editTxtField.id === todoListObj.id ? 'active_box' : ''}`} key={todoListObj.id}
-                            draggable="true"
-                            onDragStart={props.startDragging}
-                            onDragOver={props.endDraging}>
-                            
-                            {
-                                props.editTxtField.id !== todoListObj.id ? 
+                        <div className={`flex added_items ${todoListObj.isDone ? 'marked_done' : ''} ${props.editTxtField.id === todoListObj.id ? 'active_box' : ''}`} key={todoListObj.id}>
+                            <>
+                                {props.editTxtField.id !== todoListObj.id &&
                                     <>
                                         <div className="flex align-v-center">
                                             <div className="relative">
@@ -38,11 +34,8 @@ const TodoItems = (props) => {
                                             </div>
                                         </div>
                                     </>
-                                : false
-                            }
-                            
-                            {
-                                !todoListObj.isDone && props.editTxtField.id === todoListObj.id ?
+                                }
+                                {props.editTxtField.id === todoListObj.id &&
                                     <EditTodoModal
                                         todoObj={todoListObj}
                                         editTodoValue={props.editTodoValue}
@@ -50,8 +43,8 @@ const TodoItems = (props) => {
                                         textareaEnter={props.textareaEnter}
                                         removeEditText={props.removeEditText}>
                                     </EditTodoModal>
-                                :false
-                            }
+                                }
+                            </>
                         </div>
                     )
                 })
@@ -59,5 +52,3 @@ const TodoItems = (props) => {
         </>
     )
 }
-
-export default TodoItems
