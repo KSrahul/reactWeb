@@ -39,13 +39,13 @@ const todoReducer = (todoState, todoAction) =>{
             return {
                 ...todoState,
                 todoAllData: [
-                  ...todoState.todoAllData,
                     { 
                         id: new Date().getTime().toString(), 
                         listName: todoState.inputValue, 
                         isDone : false, 
                         isRemove : false
                     },
+                  ...todoState.todoAllData,
                 ],
                 inputValue: "",
               }
