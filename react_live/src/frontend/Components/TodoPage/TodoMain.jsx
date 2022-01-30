@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useRef } from 'react'
+import React, { useEffect, useReducer, useRef } from 'react'
 import {} from './Todo.css'
 import {TodoItems} from './TodoItems'
 import {ToDoTextFiled} from './ToDoTextFiled';
@@ -125,7 +125,6 @@ const TodoMain = () => {
             addItemsMethod()
         }else{
             alert("Input can't be blank!")
-            inputFocus.current.focus();
         }
     }
     
@@ -223,6 +222,10 @@ const TodoMain = () => {
 
     localStorage.setItem("allTodoData", JSON.stringify(todoCurrentData.todoAllData));
 
+    useEffect(() => {
+        inputFocus.current.focus();
+    }, [todoCurrentData.inputValue])
+    
     return(
         <div className="todo_main">
             <div className="todo_text">Add Your Todo List</div>
