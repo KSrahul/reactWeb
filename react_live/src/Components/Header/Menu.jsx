@@ -64,14 +64,14 @@ const Menu = () => {
                                 Todo App
                             </NavLink>
                         </li>
-                        <li>
+                        {/* <li>
                             <NavLink exact
                                 onClick={menuClick}
                                 activeClassName="active_menu"
                                 to="/TabsMain">
                                 Custom Tabs
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li>
                             <NavLink exact
                                 onClick={menuClick}
