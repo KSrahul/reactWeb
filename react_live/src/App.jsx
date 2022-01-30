@@ -1,13 +1,13 @@
 import './Main.css';
-import Header from './Components/Header/Menu';
-import TabsMain from './Components/Tabs/TabsMain'
-import Example2 from './Components/SearchPage/SearchMain';
-import Example3 from './Components/TodoPage/TodoMain'
-import Example4 from './Components/Accordion/BoxItems'
-import ShopingMain from './Components/ShopingCart/ShopingMain'
+import Header from './frontend/Components/Header/Menu';
+import TabsMain from './frontend/Components/Tabs/TabsMain'
+import Example2 from './frontend/Components/SearchPage/SearchMain';
+import Example3 from './frontend/Components/TodoPage/TodoMain'
+import Example4 from './frontend/Components/Accordion/BoxItems'
+import ShopingMain from './frontend/Components/ShopingCart/ShopingMain'
 import { HashRouter, Switch, Route } from 'react-router-dom';
-import { DataToSendFun } from './Context/CartDataContext';
-import ShopingCart from './Components/ShopingCart/ShopingCart';
+import { DataToSendFun } from './frontend/Context/CartDataContext';
+import ShopingCart from './frontend/Components/ShopingCart/ShopingCart';
 function App() {
   return (
     <>
